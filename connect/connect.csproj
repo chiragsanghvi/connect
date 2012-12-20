@@ -51,6 +51,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="create.html" />
     <Content Include="index.html" />
     <Content Include="Scripts\config.js" />
     <Content Include="Scripts\controllers\applicationController.js" />

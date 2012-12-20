@@ -1,4 +1,7 @@
-﻿.leftSection { padding: 6px 10px; background-color: #EDEFED; }
-.midSection { background-color: #EDEFED; padding: 10px; }
-.rightSection { background-color: #EDEFED; padding: 6px 10px; }
-
+﻿.leftSection, .midSection, .rightPanel { background-color: #fefefe; border-radius: 3px; }
+.leftSection { padding: 0px 4px 18px; }
+.leftSection li span { font-size: 15px; line-height: 30px; vertical-align: top; padding: 0px 4px; }
+.nav-header h2 { font-size: 20px; font-weight: 500; text-transform: none; line-height: 28px; padding: 3px 0 6px; color: #777; }
+.midSection { padding: 10px; margin-left: 20px !important; }
+.rightSection { padding: 0px; margin-left: 20px !important; }
+.rightPanel { padding-bottom: 20px; }

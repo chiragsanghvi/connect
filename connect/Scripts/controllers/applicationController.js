@@ -17,6 +17,8 @@ Connect.controllers.applicationController = new (function () {
             usagecount: -1,
             windowtime: 240
         };
+        EventManager.fire('sessionCreated');
+        return;
         var url = Connect.storage.urlFactory.session.getCreateSessionUrl();
         Connect.utils.ajax.put(url, request, false, function (data) {
             if (data.session && data.session.sessionkey) {
