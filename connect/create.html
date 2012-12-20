@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Connect</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet'
+        type='text/css'>
+    <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery-ui.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery.cookies.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/libraries/underscore.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/libraries/backbone.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/libraries/mustache.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/router.js?v=__RevisionNoGoesHere__"></script>
+    <script src="Scripts/infrastructure/libraries/bootstrap.min.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
+    <script type="text/javascript" src="/Scripts/config.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/eventManager.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/ajax.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/urlFactory.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/storage.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/String.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/arrays.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/cookies.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/infrastructure/templateManager.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="/Scripts/controllers/applicationController.js?v=__RevisionNoGoesHere__"></script>
+    <script src="Scripts/controllers/masterPageController.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
+    <script src="Scripts/controllers/loginController.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+    <script type="text/javascript" src="/Scripts/views/masterPage/masterPageView.js?v=__RevisionNoGoesHere__"></script>
+    <script src="Scripts/views/header/headerView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="Styles/Style.css" />
+    <link href="Styles/IndexStyle.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="visibility: hidden;">
+    <div id="divHeader" class="navbar navbar-fixed-top">
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3 leftSection">
+                <div class="sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">
+                            <h2>
+                                Search Meet-Ups</h2>
+                        </li>
+                        <li><span>within</span>
+                            <select id="ulRadius" style="width: 70px">
+                                <option selected="selected">2</option>
+                                <option>5</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>50</option>
+                                <option>100</option>
+                            </select>
+                            <span>miles of</span></li>
+                        <li style="padding-bottom: 12px;">
+                            <input id="txtCity" type="text" placeholder="city name" spellcheck="false" maxlength="100"
+                                style="width: 178px" />
+                        </li>
+                        <li class="pull-right">
+                            <button class="btn btn-primary">
+                                Go</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="divSearchResult" class="span6 midSection">
+                world world world world world world world world world world world world world world
+                world world world world world world world world world world world world world world
+                world world world world world world world world world world world world
+            </div>
+            <div class="span3 rightSection">
+                <div class="rightPanel">
+                    <div class="sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li class="nav-header">
+                                <h2>
+                                    I'm Attending</h2>
+                                <li>No items</li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rightPanel" style="margin-top: 20px">
+                    <div class="sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li class="nav-header">
+                                <h2>
+                                    I'm Organizing</h2>
+                            </li>
+                            <li>No items</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
