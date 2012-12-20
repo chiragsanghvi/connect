@@ -57,6 +57,7 @@
     <Content Include="Scripts\controllers\applicationController.js" />
     <Content Include="Scripts\controllers\masterPageController.js" />
     <Content Include="Scripts\controllers\loginController.js" />
+    <Content Include="Scripts\controllers\meetupController.js" />
     <Content Include="Scripts\infrastructure\ajax.js" />
     <Content Include="Scripts\infrastructure\arrays.js" />
     <Content Include="Scripts\infrastructure\cookies.js" />
@@ -95,6 +96,7 @@
     <Content Include="Styles\bootstrap\css\bootstrap.css" />
     <Content Include="Styles\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Styles\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Styles\images\calendar_ring.png" />
     <Content Include="Styles\IndexStyle.css" />
     <Content Include="Styles\images\back.jpg" />
     <Content Include="Styles\images\logo.png" />
