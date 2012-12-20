@@ -27,6 +27,7 @@ Connect.utils.templateManager = (function () {
     //template aliases and locations
     var map = {
         "headerTemplate": "header/headerTemplate.html"
+        
     };
 
     //private function
