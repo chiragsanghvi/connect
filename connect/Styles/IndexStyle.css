@@ -2,7 +2,7 @@
 .leftSection { padding: 0px 4px 18px; }
 .leftSection li span { font-size: 15px; line-height: 30px; vertical-align: top; padding: 0px 4px; }
 .nav-header h2 { font-size: 20px; font-weight: 500; text-transform: none; line-height: 28px; padding: 3px 0 6px; color: #777; }
-.midSection { padding: 10px; margin-left: 20px !important; }
+.midSection { padding: 10px; margin-left: 20px !important;background-color: gainsboro; }
 .rightSection { padding: 0px; margin-left: 20px !important; }
 .rightPanel { padding-bottom: 20px; }
 .entity_border { border: 1px solid gainsboro; border-radius: 3px; margin-bottom: 10px; padding: 5px; }
@@ -15,7 +15,9 @@
 .resetList { margin: 0; padding: 0; list-style-type: none; }
 .event-item { position: relative; border-bottom: 2px solid #CCC; margin-bottom: 13px; padding: 0 10px; word-wrap: break-word; margin: 0px; padding-top: 10px;  }
 .event-item:first-child { padding-top: 0px;}
-#meetup-list-container div.event-title { padding: 0 0 4px 0; border-bottom-width: 1px; border-bottom-style: dotted; }
+.event-item:last-child { border: none!important;}
+#meetup-list-container div.event-title { padding: 0 0 4px 0; border-bottom-width: 1px; border-bottom-style: dotted;}
+#meetup-list-container {background-color: white;}
 .event-title { font-size: 19px; line-height: 24px; border-bottom-color: #E6E6E6; }
 .event-meta { float: right; width: 128px; }
 .event-meta ul { padding-top: 6px; }
