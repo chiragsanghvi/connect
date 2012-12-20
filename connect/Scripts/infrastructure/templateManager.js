@@ -33,6 +33,7 @@ Connect.utils.templateManager = (function () {
         "meetupDetailsTemplate": "meetupDetailsView/meetupDetailsViewTemplate.html",
         "meetupEntityTemplate": "meetupEntityView/meetupEntityViewTemplate.html",
         "meetupListTemplate": "meetupListView/meetupListViewTemplate.html",
+        "meetupAttendTemplate": "meetupAttendView/meetupAttendViewTemplate.html",
         "meetupSearchTemplate": "meetupSearchView/meetupSearchViewTemplate.html"
     };
 

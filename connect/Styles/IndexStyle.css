@@ -6,12 +6,12 @@
 .leftSection, .midSection, .rightPanel { background-color: #fefefe; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 .leftSection { padding: 0px 4px 18px; min-height: 200px !important; }
 .leftSection li span { font-size: 15px; line-height: 30px; vertical-align: top; padding: 0px 4px; }
-.nav-header h2 { font-size: 20px; font-weight: 500; text-transform: none; line-height: 28px; padding: 3px 0 3px; color: #777; }
+.nav-header h2 { font-size: 20px; font-weight: 500; text-transform: none; line-height: 15px; padding: 0px 0 5px; color: #777; }
 .pac-container { width: 300px; }
 .pac-item { padding: 4px 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .midSection { padding: 10px; background-color: gainsboro; }
 .rightSection { padding: 0px; }
-.rightPanel { padding-bottom: 20px; }
+.rightPanel { padding: 10px; background-color: gainsboro; }
 .entity_border { border: 1px solid gainsboro; border-radius: 3px; margin-bottom: 10px; padding: 5px; }
 .ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: default; }
 
@@ -34,13 +34,15 @@
 .event-meta .time { color: #888; font-size: 12px; }
 .event-meta .event-count { color: #888; }
 .event-meta .attending-count { padding-top: 3px; }
-.event-content { border-right: 1px dotted #E6E6E6; float: left; width: 310px; padding-bottom: 5px; }
+.event-content { border-right: 1px dotted #E6E6E6; float: left; padding-bottom: 5px; }
+.span6 .event-content { width: 310px; }
+.span9 .event-content { width: 550px; }
 .event-item dl.event-where { margin: 6px 0 0; }
 .event-venuename { font-size: 14px; }
 .event-item .event-where a.no-color:link, .event-item .event-where a.no-color:visited { color: #111; }
 .event-item dl.event-where dd { font-size: 12px; color: #888; margin-top: 0; margin-bottom: 0; }
 dl dd { margin: .25em 0 1em; }
-.event-item .event-desc { margin: 5px 0 0; color: #888; font-size: 12px; }
+.event-item .event-desc { margin: 5px 0 0; color: #888; font-size: 12px; min-height: 63px; }
 .event-desc { font-size: 14px; line-height: 1.35em; position: relative; }
 .event-item .event-hosts { margin-bottom: 0; margin-top: 10px; }
 .event-meta .rsvp-callout-outer { height: 24px; padding: 4px; background-color: #E9EBE5; position: relative; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px; border-radius: 3px 3px 3px 3px; }
@@ -53,4 +55,17 @@ dl dd { margin: .25em 0 1em; }
 li { list-style: none; }
 #meetup-list-container em { color: black; font-style: normal; }
 .line::after, .lastUnit::after { clear: both; display: block; visibility: hidden; overflow: hidden; height: 0 !important; line-height: 0; font-size: xx-large; content: ""; speak: none; }
+
+/* meetup attend view style */
+
+.rightPanel .nav-list { padding: 0px; margin-bottom: -10px; }
+.rightPanel .sidebar-nav { background-color: white; padding-left: 5px; padding-right: 5px; }
+ul.D_summaryList { margin: 0; padding: 0; list-style: none; }
+ul.D_summaryList li, div.D_summaryList .D_group { margin: 0 0 .75em 0; padding: 0 0 .75em; border: dotted #DDD; border-width: 0 0 1px 0; vertical-align: top; }
+.D_narrow .D_info { margin: 0; }
+.D_summaryList .D_info, .D_item .D_info { padding: 0; margin: 0; }
+.D_summaryList .D_group .D_name { font-weight: bold; font-size: 1.1em; }
+.D_group .D_name { overflow: hidden; position: relative; width: 98%; }
+.D_name, .D_title { line-height: 1.25em; }
+.D_less { color: #333; }
 

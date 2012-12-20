@@ -83,6 +83,8 @@
     <Content Include="Scripts\views\masterPage\masterPageView.js" />
     <Content Include="Scripts\views\meetupAddView\meetupAddView.js" />
     <Content Include="Scripts\views\meetupAddView\meetupAddViewTemplate.html" />
+    <Content Include="Scripts\views\meetupAttendView\meetupAttendViewTemplate.html" />
+    <Content Include="Scripts\views\meetupAttendView\meetupAttendView.js" />
     <Content Include="Scripts\views\meetupDetailsView\meetupDetailsView.js" />
     <Content Include="Scripts\views\meetupDetailsView\meetupDetailsViewTemplate.html" />
     <Content Include="Scripts\views\meetupEntityView\meetupEntityView.js" />
