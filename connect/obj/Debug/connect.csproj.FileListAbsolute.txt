@@ -1,0 +1,10 @@
+\\vmware-host\Shared Folders\Desktop\connect\connect\bin\connect.dll
+\\vmware-host\Shared Folders\Desktop\connect\connect\bin\connect.pdb
+\\vmware-host\Shared Folders\Desktop\connect\connect\obj\Debug\ResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\connect\connect\obj\Debug\connect.dll
+\\vmware-host\Shared Folders\Desktop\connect\connect\obj\Debug\connect.pdb
+C:\Users\Chirag Sanghvi\connect\connect\bin\connect.dll
+C:\Users\Chirag Sanghvi\connect\connect\bin\connect.pdb
+C:\Users\Chirag Sanghvi\connect\connect\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Chirag Sanghvi\connect\connect\obj\Debug\connect.dll
+C:\Users\Chirag Sanghvi\connect\connect\obj\Debug\connect.pdb
