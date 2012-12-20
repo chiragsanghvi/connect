@@ -24,18 +24,18 @@
     <script type="text/javascript" src="/Scripts/infrastructure/arrays.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/cookies.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/templateManager.js?v=__RevisionNoGoesHere__"></script>
-
     <script type="text/javascript" src="/Scripts/controllers/applicationController.js?v=__RevisionNoGoesHere__"></script>
-    <script src="Scripts/controllers/masterPageController.js?v=__RevisionNoGoesHere__"type="text/javascript"></script>
+    <script src="Scripts/controllers/masterPageController.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
     <script src="Scripts/controllers/loginController.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
     <script src="Scripts/controllers/meetupController.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
-
     <script type="text/javascript" src="/Scripts/views/masterPage/masterPageView.js?v=__RevisionNoGoesHere__"></script>
     <script src="Scripts/views/header/headerView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
     <script src="Scripts/views/meetupSearchView/meetupSearchView.js?v=__RevisionNoGoesHere__"
         type="text/javascript"></script>
     <!--CSS-->
-    <script src="Scripts/views/meetupListView/meetupListView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+    <script src="Scripts/views/meetupListView/meetupListView.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
     <link type="text/css" rel="stylesheet" href="Styles/Style.css" />
     <link href="Styles/IndexStyle.css" rel="stylesheet" type="text/css" />
     <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -64,8 +64,10 @@
                             </select>
                             <span>miles of</span></li>
                         <li style="padding-bottom: 12px;">
-                            <input id="txtCity" type="text" placeholder="city name" spellcheck="false" maxlength="100"
-                                style="width: 178px" />
+                            <div class="control-group">
+                                <input id="txtCity" type="text" placeholder="city name" spellcheck="false" maxlength="100"
+                                    style="width: 178px" />
+                            </div>
                         </li>
                         <li class="pull-right">
                             <button id="btnSearch" class="btn btn-primary">
@@ -82,8 +84,8 @@
                             <li class="nav-header">
                                 <h2>
                                     I'm Attending</h2>
-                                <li>No items</li>
                             </li>
+                            <li>No items</li>
                         </ul>
                     </div>
                 </div>
