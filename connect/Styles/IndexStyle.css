@@ -1,11 +1,16 @@
+@media (min-width: 996px) {
+    .midSection { margin-left: 20px !important; }
+    .rightSection { margin-left: 20px !important; }
+}
+
 .leftSection, .midSection, .rightPanel { background-color: #fefefe; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
-.leftSection { padding: 0px 4px 18px; }
+.leftSection { padding: 0px 4px 18px; min-height: 200px !important; }
 .leftSection li span { font-size: 15px; line-height: 30px; vertical-align: top; padding: 0px 4px; }
-.nav-header h2 { font-size: 20px; font-weight: 500; text-transform: none; line-height: 28px; padding: 3px 0 6px; color: #777; }
+.nav-header h2 { font-size: 20px; font-weight: 500; text-transform: none; line-height: 28px; padding: 3px 0 3px; color: #777; }
 .pac-container { width: 300px; }
 .pac-item { padding: 4px 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.midSection { padding: 10px; margin-left: 20px !important; background-color: gainsboro; }
-.rightSection { padding: 0px; margin-left: 20px !important; }
+.midSection { padding: 10px; background-color: gainsboro; }
+.rightSection { padding: 0px; }
 .rightPanel { padding-bottom: 20px; }
 .entity_border { border: 1px solid gainsboro; border-radius: 3px; margin-bottom: 10px; padding: 5px; }
 .ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: default; }
