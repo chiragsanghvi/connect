@@ -8,3 +8,7 @@ C:\Users\Chirag Sanghvi\connect\connect\bin\connect.pdb
 C:\Users\Chirag Sanghvi\connect\connect\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Chirag Sanghvi\connect\connect\obj\Debug\connect.dll
 C:\Users\Chirag Sanghvi\connect\connect\obj\Debug\connect.pdb
+D:\Projects\Connect\connect\connect\bin\connect.dll
+D:\Projects\Connect\connect\connect\bin\connect.pdb
+D:\Projects\Connect\connect\connect\obj\Debug\connect.dll
+D:\Projects\Connect\connect\connect\obj\Debug\connect.pdb

@@ -1391,7 +1391,7 @@
         } else {
 
             child = function () {
-                if (this.templateName && typeof (this.templateName) == 'string') this.template = Genesis.utils.templateManager.getTemplate(this.templateName);
+                if (this.templateName && typeof (this.templateName) == 'string') this.template = Connect.utils.templateManager.getTemplate(this.templateName);
                 parent.apply(this, arguments);
             };
         }

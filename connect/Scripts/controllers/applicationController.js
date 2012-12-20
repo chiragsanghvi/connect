@@ -1,5 +1,7 @@
 ﻿if (!window.Connect) Connect = {};
+if (!Connect.bag) Connect.bag = {};
 if (!Connect.controllers) Connect.controllers = {};
+
 
 Connect.controllers.applicationController = new (function () {
     var sessionId = null;
@@ -51,4 +53,4 @@ EventManager.subscribe('root.pageInit', Connect.controllers.applicationControlle
 // to refresh api session
 window.setInterval(function () {
     Connect.controllers.applicationController.refreshSession();
-}, 300000);
+}, 5 * 60 * 1000);

@@ -7,8 +7,8 @@ if (!Connect.utils) Connect.utils = {};
 
 Connect.utils.templateManager = (function () {
     var store = new (function () {
-        
-        var _store = { };
+
+        var _store = {};
 
         this.setTemplate = function (obj) {
             var key = obj.templateName, value = obj.template
@@ -26,7 +26,7 @@ Connect.utils.templateManager = (function () {
 
     //template aliases and locations
     var map = {
-
+        "headerTemplate": "header/headerTemplate.html"
     };
 
     //private function

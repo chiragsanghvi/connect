@@ -1,15 +1,12 @@
 ﻿
 html { font-size: 100%; }
 html, body { font-size: 12px; color: #555; line-height: 1.5; margin: 0px; }
-body, button, input, select, textarea { font-family: verdana,Arial,sans-serif; }
-body { font-family: verdana,arial,sans-serif; font-weight: normal; background-repeat: no-repeat; background-position-y: 65px; background-position-x: center; background-image: url('images/back.jpg'); }
+body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; }
+body { font-family: verdana,arial,sans-serif; font-weight: normal; background-repeat: no-repeat; background-position-x: center; background-image: url('images/back.jpg'); }
 
 /* header css */
-#C_header { position: absolute; z-index: 4000; top: 0; left: 0; width: 100%; background: white; height: 5.4em; border-bottom: 1px solid #BBB; }
-#C_headerBody { width: 960px; position: relative; height: 100%; margin: 0 auto 0 auto; padding: 0 1em; }
-#C_logo { position: absolute; top: 10px; left: 1em; z-index: 999; }
-#C_userNav { position: absolute; right: 1em; top: .5em; z-index: 20; clear: left; text-align: right; line-height: 2em; text-align: right; line-height: 2em; }
-#C_userNav #C_userLinks { position: relative; float: left; margin-bottom: 0 !important; -webkit-padding-start: 0; padding: 0 0 0 0 !important; }
+.navbar-anchor { font-size: 20px; float:left; }
+.navbar-anchor-sub { font-size: 11px; float:left; }
 #C_userNav ul { list-style: none; }
 .C_userNavItem { display: inline; margin: 0 0 0 .8em; padding: 0; font-size: .9em; }
 #C_globalNav { position: absolute; top: 0; left: 0; }
