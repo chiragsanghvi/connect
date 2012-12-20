@@ -27,9 +27,7 @@ $(function () {
         }
     };
 
-    EventManager.subscribe('sessionCreated', setPageState);
-
-    var firstCallback = function () { new Connect.views.masterPageView().render(); };
+    var firstCallback = function () { };
     var allLoaded = 0;
 
     var Rtr = Backbone.Router.extend({

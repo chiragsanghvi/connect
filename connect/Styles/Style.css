@@ -1,39 +1,14 @@
-﻿
+﻿@media (min-width: 996px) {
+    .container-fluid { width: 996px; margin-left: auto; margin-right: auto; }
+    body { padding-top: 66px; }
+}
+
 html { font-size: 100%; }
-html, body { font-size: 12px; color: #555; line-height: 1.5; margin: 0px; }
-body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; }
-body { font-family: verdana,arial,sans-serif; font-weight: normal; background-repeat: no-repeat; background-position-x: center; background-image: url('images/back.jpg'); }
+html, body { font-size: 13px; color: #555; line-height: 1.5; margin: 0px; }
+body, button, input, select, textarea { font-family: 'Open Sans' , sans-serif; }
+body { font-weight: normal; background-repeat: no-repeat; background-position-x: center; background-image: url('images/back.jpg'); }
 
 /* header css */
-.navbar-anchor { font-size: 20px; float:left; }
-.navbar-anchor-sub { font-size: 11px; float:left; }
-#C_userNav ul { list-style: none; }
-.C_userNavItem { display: inline; margin: 0 0 0 .8em; padding: 0; font-size: .9em; }
-#C_globalNav { position: absolute; top: 0; left: 0; }
-#C_tabs { margin-left: 88px; height: 5.4em; border-left: 1px solid #EEE; }
-#C_tabs .C_tabContent { font-family: arial,sans-serif; padding: 1em 1em 0; display: block; }
-#C_tabs a:link, #C_tabs a:visited, #C_tabs a:hover { text-align: left; white-space: nowrap; font-weight: bold; }
-a:link, a:visited, a:hover { color: #3987CB; cursor: hand; cursor: pointer; }
-a:hover, .linked:hover { text-decoration: underline; }
-a:visited { color: #3987CB; }
-a, a:link, a:visited, a:hover, a:active { cursor: hand; cursor: pointer; color: #3987CB; }
-a { color: #3987CB; cursor: hand; cursor: pointer; }
-.C_topBig { line-height: 1.2em; display: block; color: #5998B6; font-size: 1.833em; font-weight: bold; letter-spacing: -1px; }
-.C_topSm { display: block; color: #BBB; font-size: 1em; font-weight: normal; }
-span { display: inline; font: inherit; }
-:link, a:visited, a:hover { color: #3987CB; text-decoration: none; cursor: hand; cursor: pointer; }
-#C_tabs a:link, #C_tabs a:visited, #C_tabs a:hover { text-align: left; float: left; white-space: nowrap; font-weight: bold; display: block; border-right: 1px solid #EEE; height: 5.4em; }
-#C_tabs a:hover { text-decoration: none; background: #5998B6; }
-#C_tabs a:hover .C_topBig, #C_tabs a:hover .C_topSm { color: white; }
-
-/* content css */
-#C_page, #tinymce, li.linkable p, .lightHeading, #promptBox .lightHeading { color: #263469; font-family: verdana, geneva, sans-serif; }
-#C_page, #C_join, .D_sponsorPreview { background-repeat: repeat; }
-#C_page, #C_join { margin-top: 5.4em; }
-html > body #C_announceBody, html > body #C_headerBody, html > body #C_contextHeadBody, html > body #C_pageBody, html > body #C_footerBody { width: 960px; }
-#C_announceBody, #C_headerBody, #C_contextHeadBody, #C_pageBody, #C_footerBody { width: 90%; margin: 0 auto 0 auto; padding: 0 1em; }
-#C_context { width: 100%; position: relative; }
-#C_document { margin: 0 0 0 144px; padding-left: 1em; }
-.noNav { margin-left: 0 !important; padding-left: 0 !important; }
-#C_page { padding-top: 10px;padding-bottom: 10px; }
-#C_pageBody { background-color: #EDEFED; border-radius: 3px; }
+.navbar-anchor { font-size: 20px; float: left; }
+.navbar-anchor-sub { font-size: 11px; float: left; }
+.container-fluid { min-height: 1000px; }
