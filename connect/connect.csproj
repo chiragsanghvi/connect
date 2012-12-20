@@ -66,6 +66,7 @@
     <Content Include="Scripts\infrastructure\libraries\gmap3.min.js" />
     <Content Include="Scripts\infrastructure\libraries\jquery-ui.js" />
     <Content Include="Scripts\infrastructure\libraries\jquery.cookies.js" />
+    <Content Include="Scripts\infrastructure\libraries\jquery.geocomplete.js" />
     <Content Include="Scripts\infrastructure\libraries\jquery.js" />
     <Content Include="Scripts\infrastructure\libraries\mustache.js" />
     <Content Include="Scripts\infrastructure\libraries\underscore.js" />
@@ -90,7 +91,6 @@
     <Content Include="Scripts\views\meetupOrganiserView\meetupOrganiserView.js" />
     <Content Include="Scripts\views\meetupOrganiserView\meetupOrganiserViewTemplate.html" />
     <Content Include="Scripts\views\meetupSearchView\meetupSearchView.js" />
-    <Content Include="Scripts\views\meetupSearchView\meetupSearchViewTemplate.html" />
     <Content Include="Styles\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="Styles\bootstrap\css\bootstrap.css" />
     <Content Include="Styles\bootstrap\img\glyphicons-halflings-white.png" />

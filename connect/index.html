@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <title>Connect</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet'
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet'
         type='text/css'>
     <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="Scripts/infrastructure/libraries/jquery.geocomplete.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery-ui.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery.cookies.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/libraries/underscore.js?v=__RevisionNoGoesHere__"></script>
@@ -28,6 +30,9 @@
     <script src="Scripts/controllers/loginController.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
     <script type="text/javascript" src="/Scripts/views/masterPage/masterPageView.js?v=__RevisionNoGoesHere__"></script>
     <script src="Scripts/views/header/headerView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+    <script src="Scripts/views/meetupSearchView/meetupSearchView.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
+    <!--CSS-->
     <link type="text/css" rel="stylesheet" href="Styles/Style.css" />
     <link href="Styles/IndexStyle.css" rel="stylesheet" type="text/css" />
     <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -60,7 +65,7 @@
                                 style="width: 178px" />
                         </li>
                         <li class="pull-right">
-                            <button class="btn btn-primary">
+                            <button id="btnSearch" class="btn btn-primary">
                                 Go</button></li>
                     </ul>
                 </div>

@@ -1,10 +1,15 @@
-﻿if (!Connect) Connect = {};
-if (!Connect.views) Connect.views = {};
+﻿$(document).ready(function () {
+    $("#btnSearch").click(function () {
+        var args = {
+        };
+        EventManager.fire("", this, args);
+    });
 
-window.Connect.views.meetupSearchView = Backbone.View.extend({
-    templateName: 'meetupSearchTemplate',
+    $("#txtCity").geocomplete().bind("geocode:result", function (event, result) {
+        console.log(result);
+    }).bind("geocode:error", function (event, status) {
 
-    render: function () {
-    }
+    }).bind("geocode:multiple", function (event, results) {
+
+    });
 });
-  
