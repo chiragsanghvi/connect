@@ -4,7 +4,7 @@
 .nav-header h2 { font-size: 20px; font-weight: 500; text-transform: none; line-height: 28px; padding: 3px 0 6px; color: #777; }
 .pac-container { width: 300px; }
 .pac-item { padding: 4px 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.midSection { padding: 10px; margin-left: 20px !important; }
+.midSection { padding: 10px; margin-left: 20px !important; background-color: gainsboro; }
 .rightSection { padding: 0px; margin-left: 20px !important; }
 .rightPanel { padding-bottom: 20px; }
 .entity_border { border: 1px solid gainsboro; border-radius: 3px; margin-bottom: 10px; padding: 5px; }
@@ -15,8 +15,11 @@
 
 .event-list { margin: 0 !important; padding-top: 8px !important; }
 .resetList { margin: 0; padding: 0; list-style-type: none; }
-.event-item { position: relative; border-bottom: 1px solid #CCC; margin-bottom: 13px; padding: 0 10px; word-wrap: break-word; margin: 0px; }
+.event-item { position: relative; border-bottom: 2px solid #CCC; margin-bottom: 13px; padding: 0 10px; word-wrap: break-word; margin: 0px; padding-top: 10px; }
+.event-item:first-child { padding-top: 0px; }
+.event-item:last-child { border: none !important; }
 #meetup-list-container div.event-title { padding: 0 0 4px 0; border-bottom-width: 1px; border-bottom-style: dotted; }
+#meetup-list-container { background-color: white; }
 .event-title { font-size: 19px; line-height: 24px; border-bottom-color: #E6E6E6; }
 .event-meta { float: right; width: 128px; }
 .event-meta ul { padding-top: 6px; }
@@ -26,7 +29,7 @@
 .event-meta .time { color: #888; font-size: 12px; }
 .event-meta .event-count { color: #888; }
 .event-meta .attending-count { padding-top: 3px; }
-.event-content { border-right: 1px dotted #E6E6E6; margin-bottom: 14px; float: left; width: 310px; }
+.event-content { border-right: 1px dotted #E6E6E6; float: left; width: 310px; padding-bottom: 5px; }
 .event-item dl.event-where { margin: 6px 0 0; }
 .event-venuename { font-size: 14px; }
 .event-item .event-where a.no-color:link, .event-item .event-where a.no-color:visited { color: #111; }
@@ -43,5 +46,6 @@ dl dd { margin: .25em 0 1em; }
 .rsvp-callout-count { font-size: 20px; font-weight: normal; padding-left: 2px; margin-right: 6px; display: block; float: left; width: 11px; height: 28px; }
 .rsvp-callout-leftcopy { display: block; float: left; font-size: 10px; width: 30px; line-height: 1.1; padding-top: 2px; letter-spacing: 0; }
 li { list-style: none; }
-#meetup-list-container em { color: black; }
+#meetup-list-container em { color: black; font-style: normal; }
+.line::after, .lastUnit::after { clear: both; display: block; visibility: hidden; overflow: hidden; height: 0 !important; line-height: 0; font-size: xx-large; content: ""; speak: none; }
 

@@ -37,7 +37,7 @@ _resharper*
 *.so.[0-9]*
 *.dbmdl
 *.dbproj.schemaview
-
+*.cache
 #Mac specific
 .DS_Store
 *.DS_Store
