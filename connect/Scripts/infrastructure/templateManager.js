@@ -26,8 +26,14 @@ Connect.utils.templateManager = (function () {
 
     //template aliases and locations
     var map = {
-        "headerTemplate": "header/headerTemplate.html"
-        
+        "headerTemplate": "header/headerTemplate.html",
+        "meetupOrganiserTemplate": "meetupOrganiserView/meetupOrganiserViewTemplate.html",
+        "loginTemplate": "loginView/loginViewTemplate.html",
+        "meetupAddTemplate": "meetupAddView/meetupAddViewTemplate.html",
+        "meetupDetailsTemplate": "meetupDetailsView/meetupDetailsViewTemplate.html",
+        "meetupEntityTemplate": "meetupEntityView/meetupEntityViewTemplate.html",
+        "meetupListTemplate": "meetupListView/meetupListViewTemplate.html",
+        "meetupSearchTemplate": "meetupSearchView/meetupSearchViewTemplate.html"
     };
 
     //private function
