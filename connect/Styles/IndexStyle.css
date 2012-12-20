@@ -1,1 +1,4 @@
-﻿.sidebar-nav {  padding:0px 10px; margin-right: 10px; background-color: #EDEFED; }
+﻿.leftSection { padding: 6px 10px; background-color: #EDEFED; }
+.midSection { background-color: #EDEFED; padding: 10px; }
+.rightSection { background-color: #EDEFED; padding: 6px 10px; }
+
