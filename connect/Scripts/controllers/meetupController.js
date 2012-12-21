@@ -157,7 +157,7 @@ Connect.controllers.meetupController = new (function () {
         if (base.meetupOrganiseView) base.meetupOrganiseView.close();
     };
 
-    this.createRSVP = function(sender, args) {
+    this.createRSVP = function (sender, args) {
         var meetup = args.meetup;
         if (!meetup) return;
         var userId = window.Connect.bag.user.__id;
@@ -173,10 +173,10 @@ Connect.controllers.meetupController = new (function () {
         };
         var cC = new Appacitive.ConnectionCollection({ relation: 'rsvp' });
         var connection = cC.createNewConnection(connectOptions);
-        connection.save(function() {
+        connection.save(function () {
             // that.addMeetUpView.showSuccess(article);
             console.dir(connection);
-        }, function() {
+        }, function () {
             // that.addMeetUpView.showError();
         });
     };

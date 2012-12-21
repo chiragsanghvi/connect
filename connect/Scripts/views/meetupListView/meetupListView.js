@@ -38,6 +38,7 @@ window.Connect.views.meetupListView = Backbone.View.extend({
     contract: function () {
         $('#divSearchResult').addClass('span6').removeClass('span9');
         $('.rightSection').show();
+        $('.rsvp-callout-outer').css('visibility', 'hidden');
     },
     bindEvents: function () {
         var that = this;
