@@ -31,4 +31,5 @@ Connect.controllers.meetupController = new (function () {
 
 EventManager.subscribe('userAuthenticated', Connect.controllers.meetupController.init);
 EventManager.subscribe('userLoggedIn', Connect.controllers.meetupController.showAttending);
+EventManager.subscribe('meetUpCreated', Connect.controllers.meetupController.showAttending);
 EventManager.subscribe('logoutUser', Connect.controllers.meetupController.hideAttending);
