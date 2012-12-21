@@ -33,7 +33,7 @@ window.Connect.views.meetupListView = Backbone.View.extend({
 
     expand: function () {
         $('.rsvp-callout-outer').css('display', 'none');
-        
+
         $('.rightSection').hide();
         $('#divSearchResult').addClass('span9').removeClass('span6');
     },
@@ -57,6 +57,10 @@ window.Connect.views.meetupListView = Backbone.View.extend({
             var res = Connect.utils.arrays.where(that.model, function (m) {
                 return (m.__id == id);
             });
+            res[0].noRsvp = false;
+            if ($(this).parents('.event-item').find('.rsvp-callout-outer').is(':visible')) {
+                res[0].noRsvp = true;
+            }
             EventManager.fire('meetup.rsvp', this, { meetup: res[0] });
         });
 
