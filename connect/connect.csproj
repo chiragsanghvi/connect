@@ -80,6 +80,7 @@
     <Content Include="Scripts\infrastructure\sdk\config.js" />
     <Content Include="Scripts\infrastructure\sdk\connection.js" />
     <Content Include="Scripts\infrastructure\sdk\connectionCollection.js" />
+    <Content Include="Scripts\infrastructure\sdk\EventManager.js" />
     <Content Include="Scripts\infrastructure\sdk\facebook.js" />
     <Content Include="Scripts\infrastructure\sdk\guid.js" />
     <Content Include="Scripts\infrastructure\sdk\httpModule.js" />
