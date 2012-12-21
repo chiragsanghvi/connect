@@ -89,16 +89,14 @@ Connect.controllers.meetupController = new (function () {
         var base = Connect.controllers.meetupController;
         if (Connect.bag.isAuthenticatedUser) {
             base.meetupListView.contract();
-            this.showAttending(this, {});
-            this.showOrganising(this, {});
+            base.showAttending(this, {});
+            base.showOrganising(this, {});
         }
     },
     this.hideSideViews = function () {
         var base = Connect.controllers.meetupController;
-        if (Connect.bag.isAuthenticatedUser) {
-            this.hideAttending();
-            this.hideOrganising();
-        }
+        base.hideAttending();
+        base.hideOrganising();
     },
 
     this.showMeetupDetails = function (sender, args) {
@@ -235,7 +233,7 @@ Connect.controllers.meetupController = new (function () {
                 console.error('Cannot create connection of type rsvp');
             }
         });
-    }
+    };
 
 })();
 
