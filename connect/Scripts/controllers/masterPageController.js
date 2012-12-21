@@ -21,12 +21,12 @@ Connect.controllers.masterPageController = new (function () {
         addMeetUpView.render();
     };
 
-    this.showMeetupDetails = function (sender, args) {
+    this.showMeetupDetails = function(sender, args) {
         //render meet up details
         new Connect.views.meetupDetailsView({ model: args.meetup }).render();
 
         //render organiser details with fetching its details
-        //new Connect.views.meetupOrganiserView({ model: user }).render();
+        new Connect.views.meetupOrganiserView({ model: {} }).render();
     };
 
     this.onShowIndexView = function () {
