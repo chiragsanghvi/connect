@@ -5,11 +5,13 @@ window.Connect.views.meetupAddView = Backbone.View.extend({
     templateName: 'meetupAddTemplate',
 
     render: function () {
+        var that = this;
         $("#divIndex").slideUp();
         $('#divMeetupDetails').slideUp();
-        
+
         this.$element = $("#divCreate");
         this.$element.html(this.template).slideDown();
+        if (!Connect.bag.createData) Connect.bag.createData = {};
         var now = new Date();
         var nowStr = String.format("{0}-{1}-{2}", now.getDate(), now.getMonth() + 1, now.getFullYear());
 
@@ -17,7 +19,10 @@ window.Connect.views.meetupAddView = Backbone.View.extend({
                 .datepicker()
                 .on('changeDate', function (ev) {
                     if (ev.date.valueOf() < new Date().valueOf()) $('label[for="txtDate"]').show().text("The end date can not be less than today's date");
-                    else $('label[for="txtDate"]').hide();
+                    else {
+                        $('label[for="txtDate"]').hide();
+                        Connect.bag.createData["date"] = ev.date;
+                    }
                     $('#txtDate').datepicker('hide');
                 });
 
@@ -28,13 +33,43 @@ window.Connect.views.meetupAddView = Backbone.View.extend({
                 draggable: true
             }
         }).bind("geocode:result", function (event, result) {
-            if (!Connect.bag.search) Connect.bag.search = {};
-            Connect.bag.search["lat"] = result.geometry.location.lat();
-            Connect.bag.search["lng"] = result.geometry.location.lng();
+            Connect.bag.createData["lat"] = result.geometry.location.lat();
+            Connect.bag.createData["lng"] = result.geometry.location.lng();
         }).bind("geocode:dragged", function (event, latLng) {
             $("input[name=lat]").val(latLng.lat());
             $("input[name=lng]").val(latLng.lng());
         });
+        setTimeout(function () { $("#txtTitle").focus(); }, 500);
+
+        $("#btnCreate").click(that.createMeetUp);
+    },
+    createMeetUp: function () {
+        var args = {
+            title: $.trim($("#txtTitle").val()),
+            description: $.trim($("#txtDesc").val()),
+            venue: $.trim($("#txtVenue").val()),
+            address: $.trim($("#txtAddress").val()),
+            lat: Connect.bag.createData["lat"],
+            lng: Connect.bag.createData["lng"],
+            date: Connect.bag.createData["date"],
+            time: $("#txtTime").val()
+        };
+        EventManager.fire("createMeetUpRequest", this, args);
+        $("#btnCreate").button('loading');
+        $("#btnCancel").attr("disabled", "disabled");
+        $("#lblRegStatus").removeClass().addClass("alert alert-info").html("Creating Connect meet-up, please wait.");
+        console.log(args);
+    },
+    showSuccess: function () {
+        $("#btnCreate").button('reset').attr("disabled", "disabled");
+        $("#btnCancel").removeAttr("disabled");
+        $("#lblRegStatus").removeClass().addClass("alert alert-success").html("Connect meet-up created successfully.");
+    },
+    showError: function (message) {
+        $("#btnCreate").button('reset');
+        $("#btnCancel").removeAttr("disabled");
+        message = message == "" ? "Failed to create meet-up. Please try again." : message;
+        $("#lblRegStatus").removeClass().addClass("alert alert-error").html(message);
     }
 });
   
