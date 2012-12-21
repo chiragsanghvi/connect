@@ -49,6 +49,7 @@ window.Connect.views.meetupAttendView = Backbone.View.extend({
             var res = Connect.utils.arrays.where(that.model.meetups, function (m) {
                 return (m.__id == id);
             });
+            res[0].noRsvp = true;
             EventManager.fire('showMeetupDetails', this, { meetup: res[0] });
         });
 

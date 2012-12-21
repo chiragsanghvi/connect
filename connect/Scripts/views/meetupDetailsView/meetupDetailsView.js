@@ -16,6 +16,7 @@ window.Connect.views.meetupDetailsView = Backbone.View.extend({
         this.$el.empty().html(html);
 
         this.$details = $('#divDetailsHead', this.$el);
+
         this.model.daysLeft = function () {
             var d = new Date(this.date);
             var curr = new Date();
@@ -34,6 +35,9 @@ window.Connect.views.meetupDetailsView = Backbone.View.extend({
         this.model.isRsvpAllowed = function () {
             if (!Connect.bag.isAuthenticatedUser)
                 return false;
+            if (this.noRsvp)
+                return false;
+            
             if (this.user) {
                 if (this.user.__id == Connect.bag.user.__id) return false;
             } else {
@@ -45,6 +49,12 @@ window.Connect.views.meetupDetailsView = Backbone.View.extend({
         this.$details.append(html);
 
         return this;
+    },
+    bindEvents: function () {
+        var that = this;
+        $('.rsvp-callout-outer', this.$el).bind('click', function () {
+            EventManager.fire('meetup.rsvp', this, { meetup: that.model });
+        });
     }
 });
   
