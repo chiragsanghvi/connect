@@ -56,7 +56,7 @@ Connect.controllers.masterPageController = new (function () {
             var cC = new Appacitive.ConnectionCollection({ relation: 'user_meetup' });
             var connection = cC.createNewConnection(connectOptions);
             connection.save(function () {
-                that.addMeetUpView.showSuccess();
+                that.addMeetUpView.showSuccess(article);
             }, function () {
                 that.addMeetUpView.showError();
             });
