@@ -153,6 +153,30 @@ Connect.controllers.meetupController = new (function () {
         if (base.meetupOrganiseView) base.meetupOrganiseView.close();
     };
 
+    this.createRSVP = function (sender, args) {
+        var meetup = args.meetup;
+        if (!meetup) return;
+        var userId = window.Connect.bag.user.__id;
+        var connectOptions = {
+            __endpointa: {
+                articleid: userId,
+                label: 'user'
+            },
+            __endpointb: {
+                articleid: meetup.__id,
+                label: 'meetup'
+            }
+        };
+        var cC = new Appacitive.ConnectionCollection({ relation: 'rsvp' });
+        var connection = cC.createNewConnection(connectOptions);
+        connection.save(function () {
+            // that.addMeetUpView.showSuccess(article);
+            console.dir(connection);
+        }, function () {
+            // that.addMeetUpView.showError();
+        });
+    }
+
 })();
 
 EventManager.subscribe('userAuthenticated', Connect.controllers.meetupController.init);
@@ -163,3 +187,5 @@ EventManager.subscribe('searchMeetUps', Connect.controllers.meetupController.sho
 EventManager.subscribe('showMeetupDetails', Connect.controllers.meetupController.showMeetupDetails);
 EventManager.subscribe('meetUpCreated', Connect.controllers.meetupController.showOrganising);
 EventManager.subscribe('rsvpCreated', Connect.controllers.meetupController.showAttending);
+
+EventManager.subscribe('meetup.rsvp', Connect.controllers.meetupController.createRSVP);
