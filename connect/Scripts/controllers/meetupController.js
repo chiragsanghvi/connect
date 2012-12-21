@@ -30,13 +30,23 @@ Connect.controllers.meetupController = new (function () {
         var base = Connect.controllers.meetupController;
 
         var _c = function (mArticles) {
+            // hide the meetings im organizing
+            if (Connect.bag.meetupsOrganizing && Connect.bag.meetupsOrganizing.length > 0 && Connect.bag.isAuthenticatedUser) {
+                Connect.bag.meetupsOrganizing.forEach(function (mId) {
+                    mArticles = mArticles.filter(function (mA) {
+                        return mA.__id != mId;
+                    });
+                });
+            }
             base.meetupListView = new Connect.views.meetupListView({ model: mArticles }).render($('#divSearchResult'));
             if (args.callback) args.callback();
             setTimeout(function () {
                 // hide the rsvp tags for meetings im already attending
-                mArticles.forEach(function (m) {
-                    $('#rsvp' + m.__id).css('visibility', 'hidden');
-                });
+                if (Connect.bag.meetupsAttending && Connect.bag.meetupsAttending.length > 0 && Connect.bag.isAuthenticatedUser) {
+                    Connect.bag.meetupsAttending.forEach(function (mId) {
+                        $('#rsvp' + mId).css('visibility', 'hidden');
+                    });
+                }
             }, 0);
         };
 
@@ -57,14 +67,18 @@ Connect.controllers.meetupController = new (function () {
                 return;
             }
             var mArticles = [];
+            Connect.bag.meetupsOrganizing = [];
             meetups.getAll().forEach(function (m) {
-
                 var mConn = m.getConnectedArticles({ relation: 'user_meetup', otherSchema: 'user' });
                 mConn.fetch(function () {
                     var x = m.getArticle();
                     x.user = mConn.getAll()[0].connectedArticle.getArticle();
                     mArticles.push(x);
                     count--;
+
+                    if (Connect.bag.isAuthenticatedUser && x.user.__id == Connect.bag.user.__id) {
+                        Connect.bag.meetupsOrganizing.push(m.get('__id'));
+                    }
 
                     if (count == 0) _c(mArticles);
                 });
@@ -111,6 +125,7 @@ Connect.controllers.meetupController = new (function () {
                 meetupsAttending.fetch(function () {
                     if (meetupsAttending.getAll().length > 0) {
                         meetups = meetupsAttending.getAll().map(function (m) { return m.connectedArticle.getArticle(); });
+                        Connect.bag.meetupsAttending = meetups.map(function (m) { return m.__id; });
                     }
 
                     // also, hide the rsvp tags for meetings im already attending
@@ -204,6 +219,9 @@ Connect.controllers.meetupController = new (function () {
                     num = 0;
                 }
                 num = parseInt(num);
+                if (isNaN(num)) {
+                    num = 0;
+                }
                 num += 1;
                 thisMeetup.set('no_of_attendees', num + '');
                 thisMeetup.save(function () {
