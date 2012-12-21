@@ -38,16 +38,16 @@ Connect.controllers.meetupController = new (function () {
                     });
                 });
             }
+            if (Connect.bag.meetupsAttending && Connect.bag.meetupsAttending.length > 0 && Connect.bag.isAuthenticatedUser) {
+                Connect.bag.meetupsAttending.forEach(function (mId) {
+                    mArticles = mArticles.filter(function (mA) {
+                        return mA.__id != mId;
+                    });
+                });
+            }
+            
             base.meetupListView = new Connect.views.meetupListView({ model: mArticles }).render($('#divSearchResult'));
             if (args.callback) args.callback();
-            setTimeout(function () {
-                // hide the rsvp tags for meetings im already attending
-                if (Connect.bag.meetupsAttending && Connect.bag.meetupsAttending.length > 0 && Connect.bag.isAuthenticatedUser) {
-                    Connect.bag.meetupsAttending.forEach(function (mId) {
-                        $('#rsvp' + mId).css('visibility', 'hidden');
-                    });
-                }
-            }, 0);
         };
 
         var meetups = new Appacitive.ArticleCollection({ schema: 'meetup' });
