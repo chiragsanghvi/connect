@@ -7,6 +7,7 @@
 .leftSection { padding: 10px; min-height: 200px !important;background-color: gainsboro; }
 .leftSection .sidebar-nav { background-color: white;}
 .leftSection li span { font-size: 15px; line-height: 30px; vertical-align: top; padding: 0px 4px; }
+.leftSection .nav-list { padding-left: 5px;padding-right: 5px;}
 .nav-header h2 { font-size: 20px; font-weight: 500; text-transform: none; line-height: 15px; padding: 0px 0 5px; color: #777; }
 .pac-container { width: 300px; }
 .pac-item { padding: 4px 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
