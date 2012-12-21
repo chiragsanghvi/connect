@@ -9,15 +9,14 @@ Connect.controllers.loginController = new (function () {
             fname: "John",
             lname: "Doe"
         };
-        Connect.bag.isAuthenticatedUser = true;
 
         //Check the user cookie
         var ucookie = Connect.utils.cookies.get("_connect_user_token");
-//        if (ucookie == null) Connect.bag.user = null;
-//        else {
-//            Connect.bag.user = SDK.getUser(ucookie.value);
-//            Connect.bag.isAuthenticatedUser = true;
-//        }
+        if (ucookie == null) Connect.bag.user = null;
+        else {
+            Connect.bag.user = SDK.getUser(ucookie.value);
+            Connect.bag.isAuthenticatedUser = true;
+        }
         EventManager.fire("userAuthenticated", this, {});
     };
 })();
