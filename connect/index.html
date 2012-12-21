@@ -76,6 +76,33 @@
     <link href="Styles/bootstrap/css/timepicker.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="visibility: hidden;">
+    <!--<div id="fb-root"></div>-->
+    <script>
+        window.fbAsyncInit = function () {
+            // init the FB JS SDK
+            FB.init({
+                appId: '418768991484276', // App ID from the App Dashboard
+                status: true, // check the login status upon init?
+                cookie: false, // set sessions cookies to allow your server to access the session?
+                xfbml: true  // parse XFBML tags on this page?
+            });
+
+            // Additional initialization code such as adding Event Listeners goes here
+
+        };
+
+        // Load the SDK's source Asynchronously
+        // Note that the debug version is being actively developed and might 
+        // contain some type checks that are overly strict. 
+        // Please report such bugs using the bugs tool.
+        (function (d, debug) {
+            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "https://connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+            ref.parentNode.insertBefore(js, ref);
+        } (document, /*debug*/false));
+    </script>
     <div id="divHeader" class="navbar navbar-fixed-top">
     </div>
     <div class="container-fluid">
@@ -99,8 +126,8 @@
                             <span>miles of</span></li>
                         <li style="padding-bottom: 6px;">
                             <div class="control-group">
-                                <input id="txtCity" type="text" placeholder="city name" spellcheck="false" maxlength="100"
-                                    class="span12" />
+                                <input id="txtCity" type="text" value="pune" placeholder="city name" spellcheck="false"
+                                    maxlength="100" class="span12" />
                             </div>
                         </li>
                         <li style="text-align: right; padding-bottom: 10px;">
