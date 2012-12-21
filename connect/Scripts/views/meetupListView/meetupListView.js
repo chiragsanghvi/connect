@@ -50,7 +50,11 @@ window.Connect.views.meetupListView = Backbone.View.extend({
         });
 
         $('a[itemprop="rsvp"]').live('click', function () {
-            EventManager.fire('meetup.rsvp', this, { meetupId: $(this).attr('data-id') });
+            var id = $(this).attr('data-id');
+            var res = Connect.utils.arrays.where(that.model, function (m) {
+                return (m.__id == id);
+            });
+            EventManager.fire('meetup.rsvp', this, { meetupId: res[0] });
         });
 
     },
