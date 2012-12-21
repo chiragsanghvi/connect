@@ -47,6 +47,7 @@ Connect.controllers.masterPageController = new (function () {
         article.set('geolocation', String.format("{0},{1}", args["lat"], args["lng"]));
         article.set('date', date.substring(0, date.indexOf("T")));
         article.set('time', args["time"]);
+        article.set('no_of_attendees', '0');
         article.save(function () {
             var userId = window.Connect.bag.user.__id;
             var connectOptions = {
