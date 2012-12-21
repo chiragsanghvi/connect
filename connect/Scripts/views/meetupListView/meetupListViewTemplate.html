@@ -4,33 +4,44 @@
 </ul>
 {{/listContainer}}
 
+{{#noResults}}
+<ul id="meetup-list-container" class="event-list clearfix resetList">
+    <li class="event-item line">
+    <div class="event-title" style="text-align: center;">
+        <span>
+            <span>No meetups found for specified search</span>
+        </span>
+    </div>
+</li>
+</ul>
+{{/noResults}}
+
 {{#list}}
-<li class="event-item line">
+<li class="event-item line">    
     <div class="event-title">
         <a href="javascript:void(0);" itemprop="details">
-            <span>Ideothon: Got an Idea for App?</span>
+            <span>{{title}}</span>
         </a>
     </div>
     <div class="event-meta">
         <ul class="resetList">
             <li class="dateTime">
                 <time itemprop="startDate" datetime="2012-12-22T10:00:00+05:30">
-					<span class="date">Sat Dec 22</span><br>
-					<span class="time">10:00 AM</span>
+					<span class="date">{{formattedDate}}</span><br>
+					<span class="time">{{time}}</span>
 				</time>
             </li>
-            <li class="rsvp-callout-outer">
-                <a href="javascript:void(0);" class="rsvp-callout-flip">RSVP 
+            <li class="rsvp-callout-outer" id="rsvp{{__id}}">
+                <a href="javascript:void(0);" class="rsvp-callout-flip" itemprop="rsvp" data-id="{{__id}}">RSVP 
                 <span class="rsvp-callout-flipcard">
                     <span class="rsvp-callout-flipcard-ring"></span>
-                    <span class="rsvp-callout-count">2</span>
-                    <span class="rsvp-callout-leftcopy">days<br>left </span>
+                    <span class="rsvp-callout-count">{{daysLeft}}</span>
+                    <span class="rsvp-callout-leftcopy">{{isMultiple}}<br>left </span>
                 </span></a>
             </li>
             <li class="rsvpCount event-count attending-count">
-                <span><em>56</em> attending </span>
+                <span><em id="attendies{{__id}}">{{no_of_attendees}}</em> attending </span>
             </li>
-            <li class="event-count"><span><em>10</em> comments </span></li>
         </ul>
     </div>
     <div class="event-content">
@@ -38,19 +49,17 @@
             <dl class="event-where">
                 <dt class="event-venuename"><span class="no-color">Symbiosis College</span> </dt>
                 <dd>
-                    Senapati Bapat Road, Pune, Pune (<a href="http://maps.google.com/maps?q=Senapati+Bapat+Road%2C+Pune%2C+Pune" target="_blank">map</a>)
+                    {{formatted_address}} (<a href="http://maps.google.com/maps?q={{formatted_address}}" target="_blank">map</a>)
                 </dd>
             </dl>
         </span>
             
         <div class="event-desc" itemprop="description">
-            "Ideothon: Got and Idea for App?" is going to be a semi technical event wherein
-            participants will brainstorm in small groups on an idea for an app and present it
-            in a 
-            <a href="javascript:void(0);" style="text-transform: uppercase; font-size: 9px" itemprop="details">Details</a>
+            {{details}}
+            <a href="javascript:void(0);" style="text-transform: uppercase; font-size: 9px" data-id="{{__id}}" itemprop="details">Details</a>
         </div>
         <p class="event-hosts ellipsis">
-            <span style="color: #888;">Organised by: </span>Shishir Vaidya
+            <span style="color: #888;">Organised by : </span> {{user.firstname}} {{user.lastname}}
         </p>
     </div>
 </li>

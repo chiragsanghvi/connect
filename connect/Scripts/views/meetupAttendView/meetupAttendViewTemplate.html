@@ -3,19 +3,29 @@
 </ul>
 {{/container}} 
 
-{{#list}}
-<li id="group3776322" class="D_group D_narrow" {{#isOrganise}}style="height:55px;"{{/isOrganise}}>
+{{#noResults}}
+<li class="D_group D_narrow" style="margin-bottom: 10px;padding-bottom: 10px;">
     <div class="D_info">
         <div class="D_name ellipsis">
-            <a href="javascript:void(0);" title="Meetup: Amazon AWS Users Group - Mumbai">Amazon AWS Users Group - Pune</a>
+            <span>No meetups</span>
+        </div>
+    </div>
+</li>
+{{/noResults}}
+
+{{#list}}
+<li id="group{{__id}}" class="D_group D_narrow" {{#isOrganise}}style="height:55px;"{{/isOrganise}}>
+    <div class="D_info">
+        <div class="D_name ellipsis">
+            <a href="javascript:void(0);" title="{{title}}" itemprop="title" data-id="{{__id}}">{{title}}</a>
         </div>
         <div class="D_less">
-            24 Dec, 2010
+            {{formattedDate}}
         </div>
         {{#isOrganise}}
         <div class="D_less">
-            <span style="float:left;color: #888;"><em>10</em> attending</span>
-            <span style="float:right;color: #888;"><em>20</em> comments</span>
+            <span style="float:left;color: #888;"><em>{{no_of_attendees}}</em> attending</span>
+            <!--<span style="float:right;color: #888;"><em>20</em> comments</span>-->
         </div>
         {{/isOrganise}}
     </div>
@@ -26,7 +36,7 @@
 <li class="D_group D_narrow">
     <div class="D_info">
         <div class="D_name ellipsis" style="text-align: right;">
-            <a href="javascript:void(0);" title="create new">Create new</a>
+            <a href="javascript:void(0);" title="create new" id="btnAddMeetup">Create new</a>
         </div>
     </div>
 </li>
