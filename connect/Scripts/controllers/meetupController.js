@@ -30,9 +30,14 @@ Connect.controllers.meetupController = new (function () {
         var base = Connect.controllers.meetupController;
 
         var _c = function (mArticles) {
-            console.dir(mArticles);
             base.meetupListView = new Connect.views.meetupListView({ model: mArticles }).render($('#divSearchResult'));
             if (args.callback) args.callback();
+            setTimeout(function () {
+                // hide the rsvp tags for meetings im already attending
+                mArticles.forEach(function (m) {
+                    $('#rsvp' + m.__id).css('visibility', 'hidden');
+                });
+            }, 0);
         };
 
         var meetups = new Appacitive.ArticleCollection({ schema: 'meetup' });
@@ -53,6 +58,7 @@ Connect.controllers.meetupController = new (function () {
             }
             var mArticles = [];
             meetups.getAll().forEach(function (m) {
+
                 var mConn = m.getConnectedArticles({ relation: 'user_meetup', otherSchema: 'user' });
                 mConn.fetch(function () {
                     var x = m.getArticle();
@@ -106,11 +112,17 @@ Connect.controllers.meetupController = new (function () {
                     if (meetupsAttending.getAll().length > 0) {
                         meetups = meetupsAttending.getAll().map(function (m) { return m.connectedArticle.getArticle(); });
                     }
+
+                    // also, hide the rsvp tags for meetings im already attending
+                    meetups.forEach(function (meetup) {
+                        $('#rsvp' + meetup.__id).css('visibility', 'hidden');
+                    });
+
                     _c(meetups);
                 });
             } else {
                 base.meetupAttendView.model.meetups.splice(0, 0, args.meetup);
-                base.meetupAttendView.render();
+                base.meetupAttendView.render($('#divAttending'));
             }
         }
     };
@@ -174,10 +186,34 @@ Connect.controllers.meetupController = new (function () {
         var cC = new Appacitive.ConnectionCollection({ relation: 'rsvp' });
         var connection = cC.createNewConnection(connectOptions);
         connection.save(function () {
-            // that.addMeetUpView.showSuccess(article);
-            console.dir(connection);
+            $('#rsvp' + meetup.__id).css('visibility', 'hidden');
+
+            // fire an event signifying rsvp 
+            EventManager.fire('rsvpCreated', this, {
+                isAdd: true,
+                meetup: meetup
+            });
+
+            // also, increase the number of attendees by one
+            var meetups = new Appacitive.ArticleCollection({ schema: 'meetup' });
+            var thisMeetup = meetups.createNewArticle();
+            thisMeetup.set('__id', meetup.__id);
+            thisMeetup.fetch(function () {
+                var num = thisMeetup.get('no_of_attendees');
+                if (isNaN(num) || typeof num == 'undefined') {
+                    num = 0;
+                }
+                num = parseInt(num);
+                num += 1;
+                thisMeetup.set('no_of_attendees', num + '');
+                thisMeetup.save(function () {
+                    $('#attendies' + thisMeetup.get('__id')).html(num);
+                });
+            });
         }, function () {
-            // that.addMeetUpView.showError();
+            if (console && console.error) {
+                console.error('Cannot create connection of type rsvp');
+            }
         });
     };
 
