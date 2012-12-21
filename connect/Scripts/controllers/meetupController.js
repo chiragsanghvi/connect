@@ -45,7 +45,7 @@ Connect.controllers.meetupController = new (function () {
                     });
                 });
             }
-            
+
             base.meetupListView = new Connect.views.meetupListView({ model: mArticles }).render($('#divSearchResult'));
             if (args.callback) args.callback();
         };
@@ -131,7 +131,6 @@ Connect.controllers.meetupController = new (function () {
                     // also, hide the rsvp tags for meetings im already attending
                     meetups.forEach(function (meetup) {
                         $('#rsvp' + meetup.__id).css('visibility', 'hidden');
-                        $('#eventContainer' + meetup.__id).css('visibility', 'hidden');
                     });
 
                     _c(meetups);
@@ -162,6 +161,11 @@ Connect.controllers.meetupController = new (function () {
                     if (meetupsOrganized.getAll().length > 0) {
                         meetups = meetupsOrganized.getAll().map(function (m) { return m.connectedArticle.getArticle(); });
                     }
+                    // hide meetups organized by me
+                    meetups.forEach(function (meetup) {
+                        $('#eventContainer' + meetup.__id).css('visibility', 'hidden');
+                    });
+
                     _c(meetups);
                 });
             } else {
