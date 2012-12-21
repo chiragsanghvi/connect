@@ -9,14 +9,33 @@ window.Connect.views.meetupDetailsView = Backbone.View.extend({
         $("#divIndex").slideUp();
         $('#divCreate').slideUp();
         $('#divMeetupDetails').show();
-        
+
         this.$el = $('#divMeetupDetailSection');
 
         var html = Mustache.render(this.template, { container: {} });
         this.$el.empty().html(html);
 
         this.$details = $('#divDetailsHead', this.$el);
-        html = Mustache.render(this.template, { details: {} });
+        this.model.daysLeft = function () {
+            var d = new Date(this.date);
+            var curr = new Date();
+            var x = Math.round((d - curr) / (1000 * 60 * 60 * 24));
+            if (x <= 0) {
+                this.isMultiple = 'day';
+                return 1;
+            }
+            this.isMultiple = 'days';
+            return x;
+        }
+        this.model.formattedDate = function () {
+            var d = new Date(this.date);
+            return d.toDateString();
+        };
+        this.model.isRsvpAllowed = function() {
+            if (this.user.__id == Connect.bag.user.__id) return false;
+            return true;
+        };
+        html = Mustache.render(this.template, { details: this.model });
         this.$details.append(html);
 
         return this;

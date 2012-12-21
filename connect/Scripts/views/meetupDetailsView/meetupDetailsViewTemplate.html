@@ -16,11 +16,10 @@
             <li id="event-desc" class="event-desc" style="padding: 0px; border: none;">
                 <div id="event-description-wrap" class="line" style="margin-bottom: 10px;">
                     <p>
-                        Come and enjoy the sea view, sea breeze and a few beers with a very interesting
-                        group of people. Will be great to meet you all again.
+                        {{details}}
                     </p>
                     <div class="D_less">
-                        <span style="float:right;color: #888;"><em>10</em> attending</span>
+                        <span style="float:right;color: #888;"><em>{{no_of_attendees}}</em> attending</span>
                     </div>
                 </div>
             </li>
@@ -30,14 +29,16 @@
                     </div>
                     <div class="clearfix figureset-description" id="event-when-display" style="float: left">
                         <time>
-                            <p class="headline">Thursday, December 27, 2012</p> <p class="subtext">7:00 PM</p>
+                            <p class="headline">{{formattedDate}}</p> <p class="subtext">{{time}}</p>
                         </time>
                     </div>
-                    <div class="rsvp-callout-outer" style="display: inline-block; float: right;">
+
+                    <div class="rsvp-callout-outer" style="display: inline-block; float: right;{{^isRsvpAllowed}}visibility: hidden;{{/isRsvpAllowed}}">
                         <a href="javascript:void(0);" class="rsvp-callout-flip">RSVP <span class="rsvp-callout-flipcard">
-                            <span class="rsvp-callout-flipcard-ring"></span><span class="rsvp-callout-count">2</span>
-                            <span class="rsvp-callout-leftcopy">days<br>
-                                left </span></span></a>
+                            <span class="rsvp-callout-flipcard-ring"></span>
+                            <span class="rsvp-callout-count">{{daysLeft}}</span>
+                            <span class="rsvp-callout-leftcopy">{{isMultiple}}<br> left </span></span>
+                        </a>
                     </div>
                 </div>
             </li>

@@ -75,6 +75,15 @@ Connect.controllers.meetupController = new (function () {
         }
     },
 
+    this.showMeetupDetails = function (sender, args) {
+        //render meet up details
+        new Connect.views.meetupDetailsView({ model: args.meetup }).render();
+
+        //render organiser details with fetching its details
+        new Connect.views.meetupOrganiserView({ model: {} }).render();
+    };
+
+
     this.showAttending = function (sender, args) {
         var base = Connect.controllers.meetupController;
         if (Connect.bag.isAuthenticatedUser) {
@@ -142,5 +151,6 @@ EventManager.subscribe('userLoggedIn', Connect.controllers.meetupController.show
 EventManager.subscribe('logoutUser', Connect.controllers.meetupController.hideSideViews);
 EventManager.subscribe('searchMeetUps', Connect.controllers.meetupController.showListView);
 
+EventManager.subscribe('showMeetupDetails', Connect.controllers.meetupController.showMeetupDetails);
 EventManager.subscribe('meetUpCreated', Connect.controllers.meetupController.showOrganising);
 EventManager.subscribe('rsvpCreated', Connect.controllers.meetupController.showAttending);
