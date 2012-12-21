@@ -55,7 +55,7 @@ dl dd { margin: .25em 0 1em; }
 .rsvp-callout-count { font-size: 20px; font-weight: normal; padding-left: 2px; margin-right: 6px; display: block; float: left; width: 11px; height: 28px; }
 .rsvp-callout-leftcopy { display: block; float: left; font-size: 10px; width: 30px; line-height: 1.1; padding-top: 2px; letter-spacing: 0; }
 li { list-style: none; }
-#meetup-list-container em { color: black; font-style: normal; }
+em { color: black; font-style: normal !important; }
 .line::after, .lastUnit::after { clear: both; display: block; visibility: hidden; overflow: hidden; height: 0 !important; line-height: 0; font-size: xx-large; content: ""; speak: none; }
 
 /* meetup attend view style */

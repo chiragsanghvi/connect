@@ -16,11 +16,12 @@ window.Connect.views.meetupAttendView = Backbone.View.extend({
     },
 
     appendMeetups: function () {
-        var html = Mustache.render(this.template, { list: {} });
+        var isOrganise = this.model.entityType == 'organise';
+        var html = Mustache.render(this.template, { list: { isOrganise: isOrganise} });
         for (var i = 0; i < 5; i++) {
             this.$el.append(html);
         }
-        if (this.model.entityType == 'organise') {
+        if (isOrganise) {
             html = Mustache.render(this.template, { add: {} });
             this.$el.append(html);
         }

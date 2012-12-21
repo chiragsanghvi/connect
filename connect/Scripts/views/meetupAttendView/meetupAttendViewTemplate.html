@@ -4,15 +4,20 @@
 {{/container}} 
 
 {{#list}}
-<li id="group3776322" class="D_group D_narrow">
+<li id="group3776322" class="D_group D_narrow" {{#isOrganise}}style="height:55px;"{{/isOrganise}}>
     <div class="D_info">
         <div class="D_name ellipsis">
             <a href="javascript:void(0);" title="Meetup: Amazon AWS Users Group - Mumbai">Amazon AWS Users Group - Pune</a>
         </div>
-        <div>
         <div class="D_less">
             24 Dec, 2010
         </div>
+        {{#isOrganise}}
+        <div class="D_less">
+            <span style="float:left;color: #888;"><em>10</em> attending</span>
+            <span style="float:right;color: #888;"><em>20</em> comments</span>
+        </div>
+        {{/isOrganise}}
     </div>
 </li>
 {{/list}}
