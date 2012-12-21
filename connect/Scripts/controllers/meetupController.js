@@ -7,10 +7,15 @@ Connect.controllers.meetupController = new (function () {
     this.init = function () {
         //fetch meetups for current location
         this.meetupListView = new Connect.views.meetupListView().render($('#divSearchResult'));
+        if (Connect.bag.isAuthenticatedUser) {
+            $('.rightSection').show();
+            this.meetupAttendView = new Connect.views.meetupAttendView({ model: { entityType: 'attend'} }).render($('#divAttending'));
+            this.meetupAttendView = new Connect.views.meetupAttendView({ model: { entityType: 'organise'} }).render($('#divOrganising'));
+        }
     };
 
     this.onUserLogout = function () {
-        
+
     };
 })();
 

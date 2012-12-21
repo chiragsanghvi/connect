@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="create.html" />
+    <Content Include="favicon.ico" />
     <Content Include="index.html" />
     <Content Include="Scripts\config.js" />
     <Content Include="Scripts\controllers\applicationController.js" />
@@ -83,6 +84,8 @@
     <Content Include="Scripts\views\masterPage\masterPageView.js" />
     <Content Include="Scripts\views\meetupAddView\meetupAddView.js" />
     <Content Include="Scripts\views\meetupAddView\meetupAddViewTemplate.html" />
+    <Content Include="Scripts\views\meetupAttendView\meetupAttendViewTemplate.html" />
+    <Content Include="Scripts\views\meetupAttendView\meetupAttendView.js" />
     <Content Include="Scripts\views\meetupDetailsView\meetupDetailsView.js" />
     <Content Include="Scripts\views\meetupDetailsView\meetupDetailsViewTemplate.html" />
     <Content Include="Scripts\views\meetupEntityView\meetupEntityView.js" />
@@ -96,6 +99,7 @@
     <Content Include="Styles\bootstrap\css\bootstrap.css" />
     <Content Include="Styles\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Styles\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Styles\CreateStyle.css" />
     <Content Include="Styles\images\calendar_ring.png" />
     <Content Include="Styles\IndexStyle.css" />
     <Content Include="Styles\images\back.jpg" />
