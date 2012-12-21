@@ -30,9 +30,14 @@ Connect.controllers.meetupController = new (function () {
         var base = Connect.controllers.meetupController;
 
         var _c = function (mArticles) {
-            console.dir(mArticles);
             base.meetupListView = new Connect.views.meetupListView({ model: mArticles }).render($('#divSearchResult'));
             if (args.callback) args.callback();
+            setTimeout(function () {
+                // hide the rsvp tags for meetings im already attending
+                mArticles.forEach(function (m) {
+                    $('#rsvp' + m.__id).css('visibility', 'hidden');
+                });
+            }, 0);
         };
 
         var meetups = new Appacitive.ArticleCollection({ schema: 'meetup' });
@@ -53,6 +58,7 @@ Connect.controllers.meetupController = new (function () {
             }
             var mArticles = [];
             meetups.getAll().forEach(function (m) {
+
                 var mConn = m.getConnectedArticles({ relation: 'user_meetup', otherSchema: 'user' });
                 mConn.fetch(function () {
                     var x = m.getArticle();
