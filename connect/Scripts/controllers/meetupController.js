@@ -85,16 +85,7 @@ Connect.controllers.meetupController = new (function () {
             if (!args.isAdd) {
                 //fetch attending meetups for current user and call callback _c
                 var meetups = [];
-                var users = new Appacitive.ArticleCollection({ schema: 'user' });
-                var thisUser = users.createNewArticle();
-                thisUser.set('__id', Connect.bag.user.__id);
-                var meetupsOrganized = thisUser.getConnectedArticles({ relation: 'user_meetup', otherSchema: 'meetup' });
-                meetupsOrganized.fetch(function () {
-                    if (meetupsOrganized.getAll().length > 0) {
-                        meetups = meetupsOrganized.getAll().map(function (m) { return m.connectedArticle.getArticle(); });
-                    }
-                    _c(meetups);
-                });
+                _c(meetups);
             } else {
                 base.meetupAttendView.model.meetups.splice(0, 0, args.meetup);
                 base.meetupAttendView.render();
@@ -113,7 +104,16 @@ Connect.controllers.meetupController = new (function () {
             if (!args.isAdd) {
                 //fetch organising meetups for current user and call callback _c
                 var meetups = [];
-                _c(meetups);
+                var users = new Appacitive.ArticleCollection({ schema: 'user' });
+                var thisUser = users.createNewArticle();
+                thisUser.set('__id', Connect.bag.user.__id);
+                var meetupsOrganized = thisUser.getConnectedArticles({ relation: 'user_meetup', otherSchema: 'meetup' });
+                meetupsOrganized.fetch(function () {
+                    if (meetupsOrganized.getAll().length > 0) {
+                        meetups = meetupsOrganized.getAll().map(function (m) { return m.connectedArticle.getArticle(); });
+                    }
+                    _c(meetups);
+                });
             } else {
                 base.meetupOrganiseView.model.meetups.splice(0, 0, args.meetup);
                 base.meetupOrganiseView.render();
