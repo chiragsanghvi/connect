@@ -4,9 +4,10 @@
 }
 
 .leftSection, .midSection, .rightPanel { background-color: #fefefe; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
-.leftSection { padding: 10px; min-height: 200px !important;background-color: gainsboro; }
-.leftSection .sidebar-nav { background-color: white;}
+.leftSection { padding: 10px; min-height: 200px !important; background-color: gainsboro; }
+.leftSection .sidebar-nav { background-color: white; border-radius: 3px; }
 .leftSection li span { font-size: 15px; line-height: 30px; vertical-align: top; padding: 0px 4px; }
+.leftSection .nav-list { padding-left: 5px; padding-right: 5px; }
 .nav-header h2 { font-size: 20px; font-weight: 500; text-transform: none; line-height: 15px; padding: 0px 0 5px; color: #777; }
 .pac-container { width: 300px; }
 .pac-item { padding: 4px 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -21,11 +22,11 @@
 
 .event-list { margin: 0 !important; padding-top: 8px !important; }
 .resetList { margin: 0; padding: 0; list-style-type: none; }
-.event-item { position: relative; border-bottom: 2px solid #CCC; margin-bottom: 13px; padding: 0 10px; word-wrap: break-word; margin: 0px; padding-top: 10px; }
+.event-item { position: relative; border-bottom: 4px solid gainsboro; margin-bottom: 13px; padding: 0 10px; word-wrap: break-word; margin: 0px; padding-top: 10px; }
 .event-item:first-child { padding-top: 0px; }
 .event-item:last-child { border: none !important; }
 #meetup-list-container div.event-title { padding: 0 0 4px 0; border-bottom-width: 1px; border-bottom-style: dotted; }
-#meetup-list-container { background-color: white; }
+#meetup-list-container { background-color: white; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 .event-title { font-size: 19px; line-height: 24px; border-bottom-color: #E6E6E6; }
 .event-meta { float: right; width: 128px; }
 .event-meta ul { padding-top: 6px; }
@@ -60,7 +61,7 @@ li { list-style: none; }
 /* meetup attend view style */
 
 .rightPanel .nav-list { padding: 0px; margin-bottom: -10px; }
-.rightPanel .sidebar-nav { background-color: white; padding-left: 5px; padding-right: 5px; }
+.rightPanel .sidebar-nav { background-color: white; padding-left: 5px; padding-right: 5px; border-radius: 3px; }
 ul.D_summaryList { margin: 0; padding: 0; list-style: none; }
 ul.D_summaryList li, div.D_summaryList .D_group { margin: 0 0 .75em 0; padding: 0 0 .75em; border: dotted #DDD; border-width: 0 0 1px 0; vertical-align: top; }
 .D_narrow .D_info { margin: 0; }

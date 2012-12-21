@@ -7,7 +7,7 @@ html { font-size: 100%; }
 html, body { font-size: 13px; color: #555; line-height: 1.5; margin: 0px; }
 body, button, input, select, textarea { font-family: 'Open Sans' , sans-serif; }
 label, input, button, select, textarea { font-size: 13px; font-weight: normal; line-height: 20px; }
-body { font-weight: normal; background-repeat: no-repeat; background-position-x: center; background-image: url('images/back.jpg'); }
+body { font-weight: normal;background-color: white; }
 
 /* header css */
 .navbar-anchor { font-size: 22px; float: left;  line-height: 22px; }
