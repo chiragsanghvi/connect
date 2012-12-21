@@ -63,6 +63,8 @@
     <Content Include="Scripts\infrastructure\cookies.js" />
     <Content Include="Scripts\infrastructure\eventManager.js" />
     <Content Include="Scripts\infrastructure\libraries\backbone.js" />
+    <Content Include="Scripts\infrastructure\libraries\bootstrap-datepicker.js" />
+    <Content Include="Scripts\infrastructure\libraries\bootstrap-timepicker.js" />
     <Content Include="Scripts\infrastructure\libraries\bootstrap.min.js" />
     <Content Include="Scripts\infrastructure\libraries\gmap3.min.js" />
     <Content Include="Scripts\infrastructure\libraries\jquery-ui.js" />
@@ -96,6 +98,8 @@
     <Content Include="Scripts\views\meetupSearchView\meetupSearchView.js" />
     <Content Include="Styles\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="Styles\bootstrap\css\bootstrap.css" />
+    <Content Include="Styles\bootstrap\css\datepicker.css" />
+    <Content Include="Styles\bootstrap\css\timepicker.css" />
     <Content Include="Styles\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Styles\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="Styles\CreateStyle.css" />
