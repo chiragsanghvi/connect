@@ -131,6 +131,7 @@ Connect.controllers.meetupController = new (function () {
                     // also, hide the rsvp tags for meetings im already attending
                     meetups.forEach(function (meetup) {
                         $('#rsvp' + meetup.__id).css('visibility', 'hidden');
+                        $('#eventContainer' + meetup.__id).css('visibility', 'hidden');
                     });
 
                     _c(meetups);
