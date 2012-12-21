@@ -58,18 +58,18 @@ window.Connect.views.meetupAddView = Backbone.View.extend({
         $("#btnCreate").button('loading');
         $("#btnCancel").attr("disabled", "disabled");
         $("#lblRegStatus").removeClass().addClass("alert alert-info").html("Creating Connect meet-up, please wait.");
-        console.log(args);
     },
     showSuccess: function () {
-        $("#btnCreate").button('reset').attr("disabled", "disabled");
+        $("#btnCreate").button('reset');
+        $("#btnCreate").attr("disabled", "disabled");
         $("#btnCancel").removeAttr("disabled");
         $("#lblRegStatus").removeClass().addClass("alert alert-success").html("Connect meet-up created successfully.");
+        EventManager.fire("meetUpCreated", this, {});
     },
-    showError: function (message) {
+    showError: function () {
         $("#btnCreate").button('reset');
         $("#btnCancel").removeAttr("disabled");
-        message = message == "" ? "Failed to create meet-up. Please try again." : message;
-        $("#lblRegStatus").removeClass().addClass("alert alert-error").html(message);
+        $("#lblRegStatus").removeClass().addClass("alert alert-error").html("Failed to create meet-up. Please try again.");
     }
 });
   

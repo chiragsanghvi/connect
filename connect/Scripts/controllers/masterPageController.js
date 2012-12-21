@@ -35,7 +35,8 @@ Connect.controllers.masterPageController = new (function () {
 
     this.onShowSignup = function () { this.masterPageView.showSignupModal(); };
 
-    this.onCreateMeetUpRequest = function (args) {
+    this.onCreateMeetUpRequest = function (sender, args) {
+        var that = this;
         var date = args["date"].toISOString();
         var collection = new Appacitive.ArticleCollection({ schema: 'meetup' });
         var article = collection.createNewArticle();
@@ -43,14 +44,31 @@ Connect.controllers.masterPageController = new (function () {
         article.set('details', args["description"]);
         article.set('venue', args["venue"]);
         article.set('formatted_address', args["address"]);
-        article.set('geolocation', String.format("'{0},{1}'", args["lat"], args["lng"]));
+        article.set('geolocation', String.format("{0},{1}", args["lat"], args["lng"]));
         article.set('date', date.substring(0, date.indexOf("T")));
         article.set('time', args["time"]);
+        article.set('no_of_attendees', '0');
         article.save(function () {
-            equal(article.get('name'), name, 'Created article successfully ' + JSON.stringify(article.getArticle()));
-            start();
+            var userId = window.Connect.bag.user.__id;
+            var connectOptions = {
+                __endpointa: {
+                    articleid: userId,
+                    label: 'user'
+                },
+                __endpointb: {
+                    articleid: article.get('__id'),
+                    label: 'meetup'
+                }
+            };
+            var cC = new Appacitive.ConnectionCollection({ relation: 'user_meetup' });
+            var connection = cC.createNewConnection(connectOptions);
+            connection.save(function () {
+                that.addMeetUpView.showSuccess();
+            }, function () {
+                that.addMeetUpView.showError();
+            });
         }, function () {
-            ok(false, 'Article save failed');
+            that.addMeetUpView.showError();
         });
     };
 })();
