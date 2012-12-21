@@ -29,7 +29,7 @@
     <script type="text/javascript" src="/Scripts/views/masterPage/masterPageView.js?v=__RevisionNoGoesHere__"></script>
     <script src="Scripts/views/header/headerView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
     <link type="text/css" rel="stylesheet" href="Styles/Style.css" />
-    <link href="Styles/IndexStyle.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/CreateStyle.css" rel="stylesheet" type="text/css" />
     <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="Styles/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 </head>
@@ -38,59 +38,26 @@
     </div>
     <div class="container-fluid">
         <div class="row-fluid">
-            <div class="span3 leftSection">
-                <div class="sidebar-nav">
-                    <ul class="nav nav-list">
-                        <li class="nav-header">
-                            <h2>
-                                Search Meet-Ups</h2>
-                        </li>
-                        <li><span>within</span>
-                            <select id="ulRadius" style="width: 70px">
-                                <option selected="selected">2</option>
-                                <option>5</option>
-                                <option>10</option>
-                                <option>20</option>
-                                <option>50</option>
-                                <option>100</option>
-                            </select>
-                            <span>miles of</span></li>
-                        <li style="padding-bottom: 12px;">
-                            <input id="txtCity" type="text" placeholder="city name" spellcheck="false" maxlength="100"
-                                style="width: 178px" />
-                        </li>
-                        <li class="pull-right">
-                            <button class="btn btn-primary">
-                                Go</button></li>
-                    </ul>
-                </div>
-            </div>
-            <div id="divSearchResult" class="span6 midSection">
-                world world world world world world world world world world world world world world
-                world world world world world world world world world world world world world world
-                world world world world world world world world world world world world
-            </div>
-            <div class="span3 rightSection">
-                <div class="rightPanel">
-                    <div class="sidebar-nav">
-                        <ul class="nav nav-list">
-                            <li class="nav-header">
-                                <h2>
-                                    I'm Attending</h2>
-                                <li>No items</li>
-                            </li>
-                        </ul>
+            <div class="span12">
+                <div class="row-fluid header-row">
+                    <div class="column-label">
+                    </div>
+                    <div class="column-input">
+                        <h2 class="font-large">
+                            account information</h2>
                     </div>
                 </div>
-                <div class="rightPanel" style="margin-top: 20px">
-                    <div class="sidebar-nav">
-                        <ul class="nav nav-list">
-                            <li class="nav-header">
-                                <h2>
-                                    I'm Organizing</h2>
-                            </li>
-                            <li>No items</li>
-                        </ul>
+                <div class="row-fluid form-row-sub">
+                    <div class="column-label">
+                        name
+                    </div>
+                    <div class="column-input">
+                        <input id="txtFirstName" type="text" class="input-xlarge" placeholder="first name"
+                            data-prettyinput="true" spellcheck="false" />
+                    </div>
+                    <div class="column-validation">
+                        <label for="txtFirstName" class="hidden">
+                            first name is required</label>
                     </div>
                 </div>
             </div>

@@ -10,6 +10,6 @@ label, input, button, select, textarea { font-size: 13px; font-weight: normal; l
 body { font-weight: normal; background-repeat: no-repeat; background-position-x: center; background-image: url('images/back.jpg'); }
 
 /* header css */
-.navbar-anchor { font-size: 20px; float: left; }
-.navbar-anchor-sub { font-size: 11px; float: left; }
+.navbar-anchor { font-size: 22px; float: left;  line-height: 22px; }
+.navbar-anchor-sub { font-size: 12px; float: left; }
 .container-fluid { min-height: 1000px; }
