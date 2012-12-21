@@ -77,7 +77,13 @@ window.Connect.views.meetupListView = Backbone.View.extend({
                     return d.toDateString();
                 },
                 isRsvpAllowed: function () {
-                    if (this.user.__id == Connect.bag.user.__id) return false;
+                    if (!Connect.bag.isAuthenticatedUser)
+                        return false;
+                    if (this.user) {
+                        if (this.user.__id == Connect.bag.user.__id) return false;
+                    } else {
+                        if (this.__createdby == Connect.bag.user.__id) return false;
+                    }
                     return true;
                 }
             });

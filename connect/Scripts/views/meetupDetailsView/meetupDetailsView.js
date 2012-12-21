@@ -31,8 +31,14 @@ window.Connect.views.meetupDetailsView = Backbone.View.extend({
             var d = new Date(this.date);
             return d.toDateString();
         };
-        this.model.isRsvpAllowed = function() {
-            if (this.user.__id == Connect.bag.user.__id) return false;
+        this.model.isRsvpAllowed = function () {
+            if (!Connect.bag.isAuthenticatedUser)
+                return false;
+            if (this.user) {
+                if (this.user.__id == Connect.bag.user.__id) return false;
+            } else {
+                if (this.__createdby == Connect.bag.user.__id) return false;
+            }
             return true;
         };
         html = Mustache.render(this.template, { details: this.model });

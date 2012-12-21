@@ -6,7 +6,7 @@ Connect.controllers.loginController = new (function () {
 
     this.authenticateUser = function () {
         var base = Connect.controllers.loginController;
-        Connect.bag.user = {};
+        Connect.bag.user = { __id: '' };
 
         //Check the user cookie
         var ucookie = Connect.utils.cookies.get("_connect_user_token");
@@ -32,7 +32,7 @@ Connect.controllers.loginController = new (function () {
                 Connect.bag.user.fName = Connect.bag.user.firstname;
                 Connect.bag.user.lName = Connect.bag.user.lastname;
                 Connect.bag.isAuthenticatedUser = true;
-                args.callback();
+                args.callback(args);
             });
         });
     };
