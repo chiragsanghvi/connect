@@ -28,4 +28,4 @@ p { margin: 0; padding: 0; margin-bottom: .7em; font-size: 1em; }
 #event-content .complete a:visited, #event-content .complete a:link, #event-content .complete a:hover, #event-fee-display, #event-fee-display .label { color: #0093c8; }
 #eventdets.new .event-stack .subtext, #eventdets.new .event-stack em, #eventdets.new .event-where-extra { color: #948D8E; }
 .event-where-address { line-height: 134%; }
-#event-description-wrap { margin-left: 45px; margin-right: 15px; }
+#event-description-wrap { margin-left: 12px; margin-right: 12px; }
