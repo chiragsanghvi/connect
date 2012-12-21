@@ -16,5 +16,15 @@ window.Connect.views.masterPageView = Backbone.View.extend({
         $("#divIndex").slideDown();
         $('#divMeetupDetails').slideUp();
         $("body").scrollTop(0);
+    },
+    showLoginModal: function () {
+        $("#divLoginModal").modal({
+            show: true
+        });
+    },
+    showSignupModal: function () {
+        $("#divSignUpModal").modal({
+            show: true
+        });
     }
 });

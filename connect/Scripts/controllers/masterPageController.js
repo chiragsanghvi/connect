@@ -21,14 +21,24 @@ Connect.controllers.masterPageController = new (function () {
         addMeetUpView.render();
     };
 
-    this.showMeetupDetails = function (sender,args) {
-        //graph query to fetch meetup details
-        var meetupDetails = {};
-        new Connect.views.meetupDetailsView({ model: meetupDetails }).render();
+    this.showMeetupDetails = function (sender, args) {
+        //render meet up details
+        new Connect.views.meetupDetailsView({ model: args.meetup }).render();
+
+        //render organiser details with fetching its details
+        //new Connect.views.meetupOrganiserView({ model: user }).render();
     };
 
     this.onShowIndexView = function () {
         this.masterPageView.showIndex();
+    };
+
+    this.onShowLogin = function () {
+        this.masterPageView.showLoginModal();
+    };
+
+    this.onShowSignup = function () {
+        this.masterPageView.showSignupModal();
     };
 })();
 
@@ -36,4 +46,6 @@ EventManager.subscribe('userAuthenticated', Connect.controllers.masterPageContro
 EventManager.subscribe('logoutUser', Connect.controllers.masterPageController.onUserLogout);
 EventManager.subscribe('createMeetUp', Connect.controllers.masterPageController.onAddNewMeetUp);
 EventManager.subscribe('showIndexView', Connect.controllers.masterPageController.onShowIndexView);
-EventManager.subscribe('showMeetupDetails', Connect.controllers.masterPageController.showMeetupDetails); 
+EventManager.subscribe('showMeetupDetails', Connect.controllers.masterPageController.showMeetupDetails);
+EventManager.subscribe('modalLogin', Connect.controllers.masterPageController.onShowLogin);
+EventManager.subscribe('modalSignup', Connect.controllers.masterPageController.onShowSignup); 

@@ -29,23 +29,41 @@
     <script type="text/javascript" src="/Scripts/infrastructure/arrays.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/cookies.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/templateManager.js?v=__RevisionNoGoesHere__"></script>
-    
     <!--controllers-->
     <script type="text/javascript" src="/Scripts/controllers/applicationController.js?v=__RevisionNoGoesHere__"></script>
-    <script src="Scripts/controllers/masterPageController.js?v=__RevisionNoGoesHere__"type="text/javascript"></script>
+    <script src="Scripts/controllers/masterPageController.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
     <script src="Scripts/controllers/loginController.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
     <script src="Scripts/controllers/meetupController.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
-    
-    <!--views-->    
+    <!--views-->
     <script type="text/javascript" src="/Scripts/views/masterPage/masterPageView.js?v=__RevisionNoGoesHere__"></script>
     <script src="Scripts/views/header/headerView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
-    <script src="Scripts/views/meetupSearchView/meetupSearchView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
-    <script src="Scripts/views/meetupListView/meetupListView.js?v=__RevisionNoGoesHere__"  type="text/javascript"></script>
-    <script src="Scripts/views/meetupAttendView/meetupAttendView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
-    <script src="Scripts/views/meetupAddView/meetupAddView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
-    <script src="Scripts/views/meetupDetailsView/meetupDetailsView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
-    <script src="Scripts/views/meetupOrganiserView/meetupOrganiserView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
-
+    <script src="Scripts/views/meetupSearchView/meetupSearchView.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
+    <script src="Scripts/views/meetupListView/meetupListView.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
+    <script src="Scripts/views/meetupAttendView/meetupAttendView.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
+    <script src="Scripts/views/meetupAddView/meetupAddView.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
+    <script src="Scripts/views/meetupDetailsView/meetupDetailsView.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
+    <script src="Scripts/views/meetupOrganiserView/meetupOrganiserView.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
+    <!--SDK-->
+    <script src="Scripts/infrastructure/sdk/httpModule.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/queries.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/config.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/session.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/queries.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/baseObject.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/guid.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/articleCollection.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/connectionCollection.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/article.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/connection.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/Users.js" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/sdk/facebook.js" type="text/javascript"></script>
     <!--CSS-->
     <link type="text/css" rel="stylesheet" href="Styles/Style.css" />
     <link href="Styles/IndexStyle.css" rel="stylesheet" type="text/css" />
@@ -126,10 +144,35 @@
             </div>
         </div>
     </div>
+    <div id="divLoginModal" class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;</button>
+            <h3>
+                Login</h3>
+        </div>
+        <div class="modal-body">
+            <p style="text-align: center">
+                <button class="btn btn-primary">
+                    Login using Facebook</button></p>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+    <div id="divSignUpModal" class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;</button>
+            <h3>
+                Sign up</h3>
+        </div>
+        <div class="modal-body">
+            <p style="text-align: center">
+                <button class="btn btn-primary">
+                    Sign up using Facebook</button></p>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
 </body>
 </html>
-<script type="text/javascript" language="javascript">
-    $(document).ready(function () {
-        EventManager.fire('createMeetUp')
-    });
-</script>
