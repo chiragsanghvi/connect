@@ -2,6 +2,7 @@
 if (!Connect.controllers) Connect.controllers = {};
 
 Connect.controllers.meetupController = new (function () {
+
     this.meetupListView = null;
 
     this.init = function (sneder, args) {
@@ -13,7 +14,7 @@ Connect.controllers.meetupController = new (function () {
         };
 
         args.callback = function () {
-            base.showAttending();
+            base.showSideViews();
         };
         base.showListView(this, args);
 
@@ -34,7 +35,7 @@ Connect.controllers.meetupController = new (function () {
 
         var filter = '(*date >= date(\'' + currDate + '\') and *geolocation within_circle ' + args.lat + ',' + args.lng + ',' + args.rad + ' mi)';
         meetups.setFilter(filter);
-        
+
         meetups.getQuery().extendOptions({ orderBy: 'date' });
 
         meetups.fetch(function () {
@@ -58,27 +59,79 @@ Connect.controllers.meetupController = new (function () {
             });
         });
     },
-
-    this.showAttending = function () {
+    this.showSideViews = function () {
         var base = Connect.controllers.meetupController;
         if (Connect.bag.isAuthenticatedUser) {
             base.meetupListView.contract();
-            base.meetupAttendView = new Connect.views.meetupAttendView({ model: { entityType: 'attend', meetups: []} }).render($('#divAttending'));
-            base.meetupAttendView = new Connect.views.meetupAttendView({ model: { entityType: 'organise', meetups: []} }).render($('#divOrganising'));
+            this.showAttending(this, {});
+            this.showOrganising(this, {});
+        }
+    },
+    this.hideSideViews = function () {
+        var base = Connect.controllers.meetupController;
+        if (Connect.bag.isAuthenticatedUser) {
+            this.hideAttending();
+            this.hideOrganising();
+        }
+    },
+
+    this.showAttending = function (sender, args) {
+        var base = Connect.controllers.meetupController;
+        if (Connect.bag.isAuthenticatedUser) {
+            if (base.meetupListView) base.meetupListView.contract();
+            var _c = function (meetups) {
+                base.meetupAttendView = new Connect.views.meetupAttendView({ model: { entityType: 'attend', meetups: meetups} }).render($('#divAttending'));
+            };
+            if (!args.isAdd) {
+                //fetch attending meetups for current user and call callback _c
+                var meetups = [];
+                _c(meetups);
+            } else {
+                base.meetupAttendView.model.meetups.splice(0, 0, args.meetup);
+                base.meetupAttendView.render();
+            }
+        }
+    };
+
+    this.showOrganising = function (sender, args) {
+        var base = Connect.controllers.meetupController;
+        if (Connect.bag.isAuthenticatedUser) {
+            if (base.meetupListView) base.meetupListView.contract();
+            var _c = function (meetups) {
+                base.meetupOrganiseView = new Connect.views.meetupAttendView({ model: { entityType: 'organise', meetups: meetups} }).render($('#divOrganising'));
+            };
+
+            if (!args.isAdd) {
+                //fetch organising meetups for current user and call callback _c
+                var meetups = [];
+                _c(meetups);
+            } else {
+                base.meetupOrganiseView.model.meetups.splice(0, 0, args.meetup);
+                base.meetupOrganiseView.render();
+            }
+
         }
     };
 
     this.hideAttending = function () {
         var base = Connect.controllers.meetupController;
-        base.meetupListView.expand();
+        if (base.meetupListView) base.meetupListView.expand();
         base.meetupAttendView.close();
         base.meetupAttendView.close();
+    };
+
+    this.hideOrganising = function () {
+        var base = Connect.controllers.meetupController;
+        if (base.meetupListView) base.meetupListView.expand();
+        if (base.meetupOrganiseView) base.meetupOrganiseView.close();
     };
 
 })();
 
 EventManager.subscribe('userAuthenticated', Connect.controllers.meetupController.init);
-EventManager.subscribe('userLoggedIn', Connect.controllers.meetupController.showAttending);
-EventManager.subscribe('logoutUser', Connect.controllers.meetupController.hideAttending);
+EventManager.subscribe('userLoggedIn', Connect.controllers.meetupController.showSideViews);
+EventManager.subscribe('logoutUser', Connect.controllers.meetupController.hideSideViews);
 EventManager.subscribe('searchMeetUps', Connect.controllers.meetupController.showListView);
-EventManager.subscribe('meetUpCreated', Connect.controllers.meetupController.showAttending);
+
+EventManager.subscribe('meetUpCreated', Connect.controllers.meetupController.showOrganising);
+EventManager.subscribe('rsvpCreated', Connect.controllers.meetupController.showAttending);

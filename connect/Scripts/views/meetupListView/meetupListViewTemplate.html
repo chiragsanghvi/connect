@@ -31,7 +31,7 @@
 					<span class="time">{{time}}</span>
 				</time>
             </li>
-            <li class="rsvp-callout-outer" id="rsvp{{__id}}">
+            <li class="rsvp-callout-outer {{^isRsvpAllowed}}hide{{/isRsvpAllowed}}" id="rsvp{{__id}}">
                 <a href="javascript:void(0);" class="rsvp-callout-flip" itemprop="rsvp" data-id="{{__id}}">RSVP 
                 <span class="rsvp-callout-flipcard">
                     <span class="rsvp-callout-flipcard-ring"></span>
