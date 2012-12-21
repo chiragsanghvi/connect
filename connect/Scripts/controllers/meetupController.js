@@ -125,7 +125,7 @@ Connect.controllers.meetupController = new (function () {
                 });
             } else {
                 base.meetupOrganiseView.model.meetups.splice(0, 0, args.meetup);
-                base.meetupOrganiseView.render();
+                base.meetupOrganiseView.render($('#divOrganising'));
             }
 
         }
