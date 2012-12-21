@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    
     $("#btnSearch").click(function () {
         if ($.trim($("#txtCity").val()) == "") {
             $("#txtCity").parent().addClass("error");
