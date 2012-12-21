@@ -48,16 +48,16 @@
                     </div>
                     <div class="clearfix figureset-description" id="event-where-display" style="padding-bottom: 10px;">
                         <p class="headline" itemprop="name">
-                            <a href="http://maps.google.com/maps?q=Inside+Mona+Apartments%2C+next+to+Sun+Churo%26%23039%3Bs+chocolate+bar+opposite+Gamadia+Road.%2C+Mumbai"
-                                target="_blank" title="">8th Floor, Diamond Head, 46B Bhulabhai Desai Road, Breach
-                                Candy</a>
+                            <a href="http://maps.google.com/maps?q={{formatted_address}}"
+                                target="_blank" title="">{{formatted_address}}</a>
                         </p>
                         <p class="event-where-address subtext">
-                            Inside Mona Apartments, next to Sun Churo's chocolate bar opposite Gamadia Road.,Mumbai
+                            <a href="http://maps.google.com/maps?q={{venue}}"
+                                target="_blank" title="">{{venue}}</a>
                         </p>
                         <div>
-                            <a target="_blank" href="http://maps.googleapis.com/maps/api/staticmap?zoom=14&amp;size=1024x768&amp;maptype=roadmap&amp;sensor=false&amp;markers=color:blue%7Clabel:S%7C19.0135,72.845">
-                                <img src="http://maps.googleapis.com/maps/api/staticmap?zoom=14&amp;size=700x150&amp;maptype=roadmap&amp;sensor=false&amp;markers=color:red%7Clabel:S%7C19.0135,72.845"
+                            <a target="_blank" href="http://maps.googleapis.com/maps/api/staticmap?zoom=14&amp;size=1024x768&amp;maptype=roadmap&amp;sensor=false&amp;markers=color:blue%7Clabel:S%7C{{geolocation}}">
+                                <img src="http://maps.googleapis.com/maps/api/staticmap?zoom=14&amp;size=700x150&amp;maptype=roadmap&amp;sensor=false&amp;markers=color:red%7Clabel:S%7C{{geolocation}}"
                                     width="650" height="100" alt="map img">
                             </a>
                         </div>
