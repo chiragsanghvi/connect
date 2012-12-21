@@ -6,7 +6,22 @@
         type='text/css'>
     <link href="/favicon.ico" rel="icon" type="image/x-icon" />
     <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery.js?v=__RevisionNoGoesHere__"></script>
+    <script type="text/javascript" src="//connect.facebook.net/en_US/all.js"></script>
+    <script>
+        window.fbAsyncInit = function () {
+            // init the FB JS SDK
+            FB.init({
+                appId: '231603603640170', // App ID from the App Dashboard
+                status: true, // check the login status upon init?
+                cookie: false, // set sessions cookies to allow your server to access the session?
+                xfbml: true  // parse XFBML tags on this page?
+            });
+            // Additional initialization code such as adding Event Listeners goes here
+        };
+
+    </script>
     <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+
     <script type="text/javascript" src="Scripts/infrastructure/libraries/jquery.geocomplete.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery-ui.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery.cookies.js?v=__RevisionNoGoesHere__"></script>
@@ -64,32 +79,7 @@
 </head>
 <body style="visibility: hidden;">
     <!--<div id="fb-root"></div>-->
-    <script>
-        window.fbAsyncInit = function () {
-            // init the FB JS SDK
-            FB.init({
-                appId: '418768991484276', // App ID from the App Dashboard
-                status: true, // check the login status upon init?
-                cookie: false, // set sessions cookies to allow your server to access the session?
-                xfbml: true  // parse XFBML tags on this page?
-            });
-
-            // Additional initialization code such as adding Event Listeners goes here
-
-        };
-
-        // Load the SDK's source Asynchronously
-        // Note that the debug version is being actively developed and might 
-        // contain some type checks that are overly strict. 
-        // Please report such bugs using the bugs tool.
-        (function (d, debug) {
-            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement('script'); js.id = id; js.async = true;
-            js.src = "https://connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
-            ref.parentNode.insertBefore(js, ref);
-        } (document, /*debug*/false));
-    </script>
+    
     <div id="divHeader" class="navbar navbar-fixed-top">
     </div>
     <div class="container-fluid">
@@ -168,8 +158,7 @@
         </div>
         <div class="modal-body">
             <p style="text-align: center">
-                <button class="btn btn-primary">
-                    Login using Facebook</button></p>
+                <button class="btn btn-primary" id="btnLogin"> Login using Facebook</button></p>
         </div>
         <div class="modal-footer">
         </div>
@@ -183,8 +172,7 @@
         </div>
         <div class="modal-body">
             <p style="text-align: center">
-                <button class="btn btn-primary">
-                    Sign up using Facebook</button></p>
+                <button class="btn btn-primary" id="btnSignup"> Sign up using Facebook</button></p>
         </div>
         <div class="modal-footer">
         </div>

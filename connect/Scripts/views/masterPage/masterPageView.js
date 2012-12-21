@@ -18,6 +18,14 @@ window.Connect.views.masterPageView = Backbone.View.extend({
         $("body").scrollTop(0);
     },
     showLoginModal: function () {
+        $('#btnLogin').unbind('click').bind('click', function () {
+            EventManager.fire('loginUser', this, {
+                callback: function () {
+                    EventManager.fire("userAuthenticated", this, {});
+                    $("#divLoginModal").modal('hide');
+                }
+            });
+        });
         $("#divLoginModal").modal({
             show: true
         });

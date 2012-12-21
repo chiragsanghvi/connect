@@ -25,6 +25,11 @@ window.Connect.views.headerView = Backbone.View.extend({
             $("#ulSignUp").removeClass("hidden").show();
             $("#ulUser").addClass("hidden").hide();
         }
+
+        $('#btnLogout').bind('click', function () {
+            Connect.utils.cookies.del('_connect_user_token');
+            EventManager.fire('logoutUser');
+        });
         return this;
     }
 });

@@ -22,11 +22,11 @@
                 </ul>
                 <ul id="ulUser" class="nav hidden" style="margin-top: 6px;">
                     <li class="dropdown"><a href="#" class="dropdown-toggle navbar-anchor" data-toggle="dropdown">
-                        {{fname}} {{lname}} <b class="caret"></b></a>
+                        {{fName}} {{lName}} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="javascript:EventManager.fire('createMeetUp')">Create Meet-Up</a></li>
                             <li class="divider"></li>
-                            <li><a href="javascript:EventManager.fire('logoutUser')">Logout</a></li>
+                            <li><a href="javascript:void(0);" id="btnLogout">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
