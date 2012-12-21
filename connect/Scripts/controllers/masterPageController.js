@@ -21,10 +21,12 @@ Connect.controllers.masterPageController = new (function () {
         addMeetUpView.render();
     };
 
-    this.showMeetupDetails = function (sender,args) {
-        //graph query to fetch meetup details
-        var meetupDetails = {};
-        new Connect.views.meetupDetailsView({ model: meetupDetails }).render();
+    this.showMeetupDetails = function (sender, args) {
+        //render meet up details
+        new Connect.views.meetupDetailsView({ model: args.meetup }).render();
+
+        //render organiser details with fetching its details
+        //new Connect.views.meetupOrganiserView({ model: user }).render();
     };
 
     this.onShowIndexView = function () {
