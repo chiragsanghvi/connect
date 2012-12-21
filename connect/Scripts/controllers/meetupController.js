@@ -6,7 +6,13 @@ Connect.controllers.meetupController = new (function () {
     this.meetupListView = null;
 
     this.init = function (sneder, args) {
+        
         var base = Connect.controllers.meetupController;
+        if (!Connect.bag.search) Connect.bag.search = {};
+        
+        Connect.bag.search["lat"] = "18.5204303";
+        Connect.bag.search["lng"] = "73.85674369999992";
+
         var args = {
             lat: '18.5204303',
             lng: '73.85674369999992',
