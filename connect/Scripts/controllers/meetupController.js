@@ -6,10 +6,10 @@ Connect.controllers.meetupController = new (function () {
     this.meetupListView = null;
 
     this.init = function (sneder, args) {
-        
+
         var base = Connect.controllers.meetupController;
         if (!Connect.bag.search) Connect.bag.search = {};
-        
+
         Connect.bag.search["lat"] = "18.5204303";
         Connect.bag.search["lng"] = "73.85674369999992";
 
@@ -69,16 +69,14 @@ Connect.controllers.meetupController = new (function () {
         var base = Connect.controllers.meetupController;
         if (Connect.bag.isAuthenticatedUser) {
             base.meetupListView.contract();
-            this.showAttending(this, {});
-            this.showOrganising(this, {});
+            base.showAttending(this, {});
+            base.showOrganising(this, {});
         }
     },
     this.hideSideViews = function () {
         var base = Connect.controllers.meetupController;
-        if (Connect.bag.isAuthenticatedUser) {
-            this.hideAttending();
-            this.hideOrganising();
-        }
+        base.hideAttending();
+        base.hideOrganising();
     },
 
     this.showMeetupDetails = function (sender, args) {
@@ -159,7 +157,7 @@ Connect.controllers.meetupController = new (function () {
         if (base.meetupOrganiseView) base.meetupOrganiseView.close();
     };
 
-    this.createRSVP = function (sender, args) {
+    this.createRSVP = function(sender, args) {
         var meetup = args.meetup;
         if (!meetup) return;
         var userId = window.Connect.bag.user.__id;
@@ -175,13 +173,13 @@ Connect.controllers.meetupController = new (function () {
         };
         var cC = new Appacitive.ConnectionCollection({ relation: 'rsvp' });
         var connection = cC.createNewConnection(connectOptions);
-        connection.save(function () {
+        connection.save(function() {
             // that.addMeetUpView.showSuccess(article);
             console.dir(connection);
-        }, function () {
+        }, function() {
             // that.addMeetUpView.showError();
         });
-    }
+    };
 
 })();
 

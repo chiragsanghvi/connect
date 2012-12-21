@@ -50,10 +50,10 @@ dl dd { margin: .25em 0 1em; }
 .event-meta .rsvp-callout-outer ,.event-stack .rsvp-callout-outer{ height: 24px; padding: 4px; background-color: #E9EBE5; position: relative; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px; border-radius: 3px 3px 3px 3px; }
 .event-meta .rsvp-callout-outer .rsvp-callout-flip,.event-stack .rsvp-callout-outer .rsvp-callout-flip { width: 45px; padding-left: 16px; }
 .event-meta .rsvp-callout-outer a ,.event-stack .rsvp-callout-outer a{ display: block; height: 24px; line-height: 24px; background-color: #F3F4F0; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px; border-radius: 3px 3px 3px 3px; }
-.rsvp-callout-flipcard { background-color: white; border-right: 1px solid #444; border-bottom: 1px solid #444; box-shadow: 0 0 1px #888; display: block; position: absolute; left: 70px; top: 4px; right: 8px; width: 50px; height: 29px; padding: 3px 4px 0; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px; border-radius: 3px 3px 3px 3px; color: black !important; }
+.rsvp-callout-flipcard { background-color: white; border-right: 1px solid #444; border-bottom: 1px solid #444; box-shadow: 0 0 1px #888; display: block; position: absolute; left: 70px; top: 4px; right: 8px; width: 50px; height: 29px; padding: 3px 0px 0; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px; border-radius: 3px 3px 3px 3px; color: black !important; }
 .rsvp-callout-flipcard-ring { display: block; position: absolute; background-repeat: no-repeat; background-image: url("images/calendar_ring.png"); width: 21px; height: 12px; left: 20px; top: -6px; }
-.rsvp-callout-count { font-size: 20px; font-weight: normal; padding-left: 2px; margin-right: 6px; display: block; float: left; width: 11px; height: 28px; }
-.rsvp-callout-leftcopy { display: block; float: left; font-size: 10px; width: 30px; line-height: 1.1; padding-top: 2px; letter-spacing: 0; }
+.rsvp-callout-count { font-size: 20px; font-weight: normal; padding-left: 0px; margin-right: 0px; display: block; float: left; width: 11px;text-align: center;padding-top: 2px; height: 28px;width: 25px; }
+.rsvp-callout-leftcopy { display: block; float: left; font-size: 10px; width: 30px; line-height: 1.1; padding-top: 3px;text-align: right; letter-spacing: 0;width: 22px; }
 li { list-style: none; }
 em { color: black; font-style: normal !important; }
 .line::after, .lastUnit::after { clear: both; display: block; visibility: hidden; overflow: hidden; height: 0 !important; line-height: 0; font-size: xx-large; content: ""; speak: none; }
