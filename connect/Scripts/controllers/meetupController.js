@@ -102,6 +102,12 @@ Connect.controllers.meetupController = new (function () {
                     if (meetupsAttending.getAll().length > 0) {
                         meetups = meetupsAttending.getAll().map(function (m) { return m.connectedArticle.getArticle(); });
                     }
+
+                    // also, hide the rsvp tags for meetings im already attending
+                    meetups.forEach(function (meetup) {
+                        $('#rsvp' + meetup.__id).css('visibility', 'hidden');
+                    });
+
                     _c(meetups);
                 });
             } else {
@@ -170,10 +176,26 @@ Connect.controllers.meetupController = new (function () {
         var cC = new Appacitive.ConnectionCollection({ relation: 'rsvp' });
         var connection = cC.createNewConnection(connectOptions);
         connection.save(function () {
-            // that.addMeetUpView.showSuccess(article);
-            console.dir(connection);
+            $('#rsvp' + meetup.__id).css('visibility', 'hidden');
+
+            // also, increase the number of attendees by one
+            var meetups = new Appacitive.ArticleCollection({ schema: 'meetup' });
+            var thisMeetup = meetups.createNewArticle();
+            thisMeetup.set('__id', meetup.__id);
+            thisMeetup.fetch(function () {
+                var num = thisMeetup.get('no_of_attendees');
+                if (isNaN(num) || typeof num == 'undefined') {
+                    num = 0;
+                }
+                thisMeetup.set('no_of_attendees', num + 1 + '');
+                thisMeetup.save(function () {
+                    $('#attendies' + thisMeetup.get('__id')).html(num);
+                });
+            });
         }, function () {
-            // that.addMeetUpView.showError();
+            if (console && console.error) {
+                console.error('Cannot create connection of type rsvp');
+            }
         });
     }
 
