@@ -118,7 +118,7 @@ Connect.controllers.meetupController = new (function () {
                 });
             } else {
                 base.meetupAttendView.model.meetups.splice(0, 0, args.meetup);
-                base.meetupAttendView.render();
+                base.meetupAttendView.render($('#divAttending'));
             }
         }
     };
@@ -183,6 +183,12 @@ Connect.controllers.meetupController = new (function () {
         var connection = cC.createNewConnection(connectOptions);
         connection.save(function () {
             $('#rsvp' + meetup.__id).css('visibility', 'hidden');
+
+            // fire an event signifying rsvp 
+            EventManager.fire('rsvpCreated', this, {
+                isAdd: true,
+                meetup: meetup
+            });
 
             // also, increase the number of attendees by one
             var meetups = new Appacitive.ArticleCollection({ schema: 'meetup' });
