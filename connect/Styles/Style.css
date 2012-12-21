@@ -12,4 +12,3 @@ body { font-weight: normal; background-color: #f4f4f4; }
 /* header css */
 .navbar-anchor { font-size: 22px; float: left; line-height: 22px; }
 .navbar-anchor-sub { font-size: 12px; float: left; }
-.container-fluid { min-height: 1000px; }

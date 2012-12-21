@@ -25,25 +25,28 @@
     <script type="text/javascript" src="/Scripts/infrastructure/arrays.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/cookies.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/templateManager.js?v=__RevisionNoGoesHere__"></script>
+    
+    <!--controllers-->
     <script type="text/javascript" src="/Scripts/controllers/applicationController.js?v=__RevisionNoGoesHere__"></script>
-    <script src="Scripts/controllers/masterPageController.js?v=__RevisionNoGoesHere__"
-        type="text/javascript"></script>
+    <script src="Scripts/controllers/masterPageController.js?v=__RevisionNoGoesHere__"type="text/javascript"></script>
     <script src="Scripts/controllers/loginController.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
     <script src="Scripts/controllers/meetupController.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+    
+    <!--views-->    
     <script type="text/javascript" src="/Scripts/views/masterPage/masterPageView.js?v=__RevisionNoGoesHere__"></script>
     <script src="Scripts/views/header/headerView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
-    <script src="Scripts/views/meetupSearchView/meetupSearchView.js?v=__RevisionNoGoesHere__"
-        type="text/javascript"></script>
-    <script src="Scripts/views/meetupListView/meetupListView.js?v=__RevisionNoGoesHere__"
-        type="text/javascript"></script>
-    <script src="Scripts/views/meetupAttendView/meetupAttendView.js?v=__RevisionNoGoesHere__"
-        type="text/javascript"></script>
-    <script src="Scripts/views/meetupAddView/meetupAddView.js?v=__RevisionNoGoesHere__"
-        type="text/javascript"></script>
+    <script src="Scripts/views/meetupSearchView/meetupSearchView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+    <script src="Scripts/views/meetupListView/meetupListView.js?v=__RevisionNoGoesHere__"  type="text/javascript"></script>
+    <script src="Scripts/views/meetupAttendView/meetupAttendView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+    <script src="Scripts/views/meetupAddView/meetupAddView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+    <script src="Scripts/views/meetupDetailsView/meetupDetailsView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+    <script src="Scripts/views/meetupOrganiserView/meetupOrganiserView.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+
     <!--CSS-->
     <link type="text/css" rel="stylesheet" href="Styles/Style.css" />
     <link href="Styles/IndexStyle.css" rel="stylesheet" type="text/css" />
     <link href="Styles/CreateStyle.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/DetailStyle.css" rel="stylesheet" type="text/css" />
     <link href="Styles/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="Styles/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 </head>
@@ -109,6 +112,12 @@
             </div>
         </div>
         <div id="divCreate" class="row-fluid">
+        </div>
+        <div id="divMeetupDetails" class="row-fluid hide">
+            <div class="span3 leftSection" id="divOrganiserContainer">
+            </div>
+            <div id="divMeetupDetailSection" class="span9 midSection">
+            </div>
         </div>
     </div>
 </body>

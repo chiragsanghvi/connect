@@ -21,6 +21,12 @@ Connect.controllers.masterPageController = new (function () {
         addMeetUpView.render();
     };
 
+    this.showMeetupDetails = function (sender,args) {
+        //graph query to fetch meetup details
+        var meetupDetails = {};
+        new Connect.views.meetupDetailsView({ model: meetupDetails }).render();
+    };
+
     this.onShowIndexView = function () {
         this.masterPageView.showIndex();
     };
@@ -29,4 +35,5 @@ Connect.controllers.masterPageController = new (function () {
 EventManager.subscribe('userAuthenticated', Connect.controllers.masterPageController.init);
 EventManager.subscribe('logoutUser', Connect.controllers.masterPageController.onUserLogout);
 EventManager.subscribe('createMeetUp', Connect.controllers.masterPageController.onAddNewMeetUp);
-EventManager.subscribe('showIndexView', Connect.controllers.masterPageController.onShowIndexView); 
+EventManager.subscribe('showIndexView', Connect.controllers.masterPageController.onShowIndexView);
+EventManager.subscribe('showMeetupDetails', Connect.controllers.masterPageController.showMeetupDetails); 

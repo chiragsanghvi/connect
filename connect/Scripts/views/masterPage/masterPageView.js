@@ -14,5 +14,6 @@ window.Connect.views.masterPageView = Backbone.View.extend({
     showIndex: function () {
         $("#divCreate").slideUp();
         $("#divIndex").slideDown();
+        $('#divMeetupDetails').slideUp();
     }
 });

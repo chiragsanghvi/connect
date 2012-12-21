@@ -13,6 +13,8 @@ window.Connect.views.meetupAttendView = Backbone.View.extend({
 
         this.$el = $('.D_summaryList', this.$container).first();
         this.appendMeetups();
+
+        return this;
     },
 
     appendMeetups: function () {
@@ -25,6 +27,10 @@ window.Connect.views.meetupAttendView = Backbone.View.extend({
             html = Mustache.render(this.template, { add: {} });
             this.$el.append(html);
         }
+    },
+
+    close: function () {
+        this.$el.empty();
     }
 });
   

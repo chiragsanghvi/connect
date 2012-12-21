@@ -8,9 +8,9 @@ window.Connect.views.meetupListView = Backbone.View.extend({
     render: function ($container) {
 
         if (Connect.bag.isAuthenticatedUser) {
-            $('#divSearchResult').addClass('span6').removeClass('span9');
+            this.contract();
         } else {
-            $('#divSearchResult').addClass('span9').removeClass('span6');
+            this.expand();
         }
 
         this.$container = $container;
@@ -19,9 +19,26 @@ window.Connect.views.meetupListView = Backbone.View.extend({
 
 
         this.$el = $('#meetup-list-container', this.$container);
+
+        this.bindEvents();
         this.appendMeetups();
+
+        return this;
     },
 
+    expand: function () {
+        $('.rightSection').hide();
+        $('#divSearchResult').addClass('span9').removeClass('span6');
+    },
+    contract: function () {
+        $('#divSearchResult').addClass('span6').removeClass('span9');
+        $('.rightSection').show();
+    },
+    bindEvents: function () {
+        $('a[itemprop="details"]').live('click', function () {
+            EventManager.fire('showMeetupDetails', this, { meetupId: '123' });
+        });
+    },
     appendMeetups: function () {
         var html = Mustache.render(this.template, { list: {} });
         for (var i = 0; i < 5; i++) {

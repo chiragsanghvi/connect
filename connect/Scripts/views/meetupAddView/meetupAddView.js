@@ -6,6 +6,8 @@ window.Connect.views.meetupAddView = Backbone.View.extend({
 
     render: function () {
         $("#divIndex").slideUp();
+        $('#divMeetupDetails').slideUp();
+        
         this.$element = $("#divCreate");
         this.$element.html(this.template).slideDown();
     }
