@@ -51,7 +51,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="create.html" />
     <Content Include="favicon.ico" />
     <Content Include="index.html" />
     <Content Include="Scripts\config.js" />
