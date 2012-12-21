@@ -6,10 +6,10 @@ Connect.controllers.meetupController = new (function () {
     this.meetupListView = null;
 
     this.init = function (sneder, args) {
-        
+
         var base = Connect.controllers.meetupController;
         if (!Connect.bag.search) Connect.bag.search = {};
-        
+
         Connect.bag.search["lat"] = "18.5204303";
         Connect.bag.search["lng"] = "73.85674369999992";
 
@@ -193,7 +193,9 @@ Connect.controllers.meetupController = new (function () {
                 if (isNaN(num) || typeof num == 'undefined') {
                     num = 0;
                 }
-                thisMeetup.set('no_of_attendees', num + 1 + '');
+                num = parseInt(num);
+                num += 1;
+                thisMeetup.set('no_of_attendees', num + '');
                 thisMeetup.save(function () {
                     $('#attendies' + thisMeetup.get('__id')).html(num);
                 });
