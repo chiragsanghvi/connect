@@ -34,13 +34,14 @@ window.Connect.views.headerView = Backbone.View.extend({
                     Connect.utils.cookies.del('_connect_user_token');
                     Connect.bag.isAuthenticatedUser = false;
                     EventManager.fire('logoutUser');
+                    EventManager.fire('showIndexView')
                 });
             } catch (e) {
                 Connect.utils.cookies.del('_connect_user_token');
                 Connect.bag.isAuthenticatedUser = false;
                 EventManager.fire('logoutUser');
+                EventManager.fire('showIndexView')
             }
-
         });
         return this;
     }
