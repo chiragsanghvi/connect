@@ -129,7 +129,9 @@ Connect.controllers.meetupController = new (function () {
             if (!args.meetup.user.profilePic) {
                 args.meetup.user.profilePic = '/Styles/images/human.png';
             }
-            args.meetup.user.getFacebookProfile(function (fbDetails) {
+            var users = new Appacitive.ArticleCollection({ schema: 'user' });
+            var user = users.createNewArticle();
+            user.getFacebookProfile(function (fbDetails) {
                 args.meetup.user.profilePic = Appacitive.facebook.getProfilePictureUrl(fbDetails.username);
                 new Connect.views.meetupOrganiserView({ model: args.meetup.user }).render();
             });
