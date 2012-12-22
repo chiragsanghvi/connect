@@ -13,12 +13,15 @@
                     <br />
                     <span class="navbar-anchor-sub">a Meet-Up</span></a></li>
                 <li class="divider-vertical" style="height: 60px"></li>
+                <li class="authstuff hidden" style="padding: 0px 8px;"><a href="javascript:EventManager.fire('createMeetUp')" class="navbar-anchor"><span
+                    class="navbar-anchor">Create</span>
+                    <br />
+                    <span class="navbar-anchor-sub">a Meet-Up</span></a></li>
+                <li class="divider-vertical authstuff hidden" style="height: 60px"></li>
             </ul>
             <div class="navbar-form pull-right">
                 <ul id="ulSignUp" class="nav">
                     <li><a href="javascript:EventManager.fire('modalLogin');">Log in</a></li>
-                    <li class="divider-vertical"></li>
-                    <li><a href="javascript:EventManager.fire('modalSignup');">Sign up</a> </li>
                 </ul>
                 <ul id="ulUser" class="nav hidden" style="margin-top: 6px;">
                     <li class="dropdown"><a href="#" class="dropdown-toggle navbar-anchor" data-toggle="dropdown">
