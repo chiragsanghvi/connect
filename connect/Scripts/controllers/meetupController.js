@@ -117,7 +117,10 @@ Connect.controllers.meetupController = new (function () {
                 };
                 if (Connect.bag.isAuthenticatedUser) {
                     //Fetch fb user for profile pic
-                    _c();
+                    user.getFacebookProfile(function (fbDetails) {
+                        args.meetup.user.profilePic = Appacitive.facebook.getProfilePictureUrl(fbDetails.username);
+                        _c();
+                    });
                 } else {
                     _c();
                 }
