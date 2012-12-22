@@ -107,6 +107,7 @@
     <Content Include="Styles\DetailStyle.css" />
     <Content Include="Styles\images\calendar_ring.png" />
     <Content Include="Styles\images\event-stack-sprite.png" />
+    <Content Include="Styles\images\human.png" />
     <Content Include="Styles\IndexStyle.css" />
     <Content Include="Styles\images\back.jpg" />
     <Content Include="Styles\images\logo.png" />
