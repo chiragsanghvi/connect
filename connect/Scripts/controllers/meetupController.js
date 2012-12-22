@@ -265,12 +265,27 @@ Connect.controllers.meetupController = new (function () {
                 thisMeetup.save(function () {
                     $('#attendies' + thisMeetup.get('__id')).html(num);
                 });
+                EventManager.fire('updateAttendies', this, { meetup: meetup });
             });
         }, function () {
             if (console && console.error) {
                 console.error('Cannot create connection of type rsvp');
             }
         });
+    };
+
+    this.updateAttendies = function (sender, args) {
+//        var base = Connect.controllers.meetupController;
+//        if (base.meetupOrganiseView) {
+//            var res = Connect.utils.arrays.where(base.meetupOrganiseView.model, function (m) {
+
+//            });
+//        }
+//        if (base.meetupAttendView) {
+//            var res = Connect.utils.arrays.forEach(base.meetupAttendView.model, function (m) {
+
+//            });
+//        }
     };
 
 })();
@@ -285,3 +300,4 @@ EventManager.subscribe('meetUpCreated', Connect.controllers.meetupController.sho
 EventManager.subscribe('rsvpCreated', Connect.controllers.meetupController.showAttending);
 
 EventManager.subscribe('meetup.rsvp', Connect.controllers.meetupController.createRSVP);
+EventManager.subscribe('updateAttendies', Connect.controllers.meetupController.updateAttendies);
