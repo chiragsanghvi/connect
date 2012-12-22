@@ -61,6 +61,9 @@ window.Connect.views.meetupAddView = Backbone.View.extend({
     },
     showSuccess: function (createdMeetup) {
         $("#btnCreate").button('reset');
+        setTimeout(function () {
+            EventManager.fire('showIndexView');
+        }, 2000);
         $("#btnCreate").attr("disabled", "disabled");
         $("#btnCancel").removeAttr("disabled");
         $("#lblRegStatus").removeClass().addClass("alert alert-success").html("Connect meet-up created successfully.");

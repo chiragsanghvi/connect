@@ -21,9 +21,11 @@ window.Connect.views.headerView = Backbone.View.extend({
         if (Connect.bag.isAuthenticatedUser == true) {
             $("#ulUser").removeClass("hidden").show();
             $("#ulSignUp").addClass("hidden").hide();
+            $(".authstuff").removeClass("hidden").show();
         } else {
             $("#ulSignUp").removeClass("hidden").show();
             $("#ulUser").addClass("hidden").hide();
+            $(".authstuff").addClass("hidden").hide();
         }
 
         $('#btnLogout').bind('click', function () {
