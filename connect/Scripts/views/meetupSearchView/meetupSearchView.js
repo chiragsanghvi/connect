@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    
+
     $("#btnSearch").click(function () {
         if ($.trim($("#txtCity").val()) == "") {
             $("#txtCity").parent().addClass("error");
@@ -10,9 +10,12 @@
         var args = {
             lat: Connect.bag.search["lat"],
             lng: Connect.bag.search["lng"],
-            rad: $("#ulRadius").val()
+            rad: $("#ulRadius").val(),
+            callback: function () {
+                $("#btnSearch").button('reset');
+            }
         };
-        console.log(args);
+        $("#btnSearch").button('loading')
         EventManager.fire("searchMeetUps", this, args);
     });
     var focusIntId = undefined;

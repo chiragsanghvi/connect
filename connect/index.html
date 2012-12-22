@@ -10,7 +10,7 @@
     <script>
         window.fbAsyncInit = function () {
             appId = '231603603640170';
-            
+
             if (window.location.host.toLowerCase().indexOf('connect.appacitive.com') == -1) {
                 appId = '339010666206034';
             }
@@ -112,8 +112,9 @@
                             </div>
                         </li>
                         <li style="text-align: right; padding-bottom: 10px;">
-                            <button id="btnSearch" class="btn btn-primary">
-                                Go</button></li>
+                            <button id="btnSearch" class="btn btn-primary" data-loading-text="Searching" style="padding: 5px 5px !important;
+                                width: 80px;">
+                                Search</button></li>
                     </ul>
                 </div>
             </div>
