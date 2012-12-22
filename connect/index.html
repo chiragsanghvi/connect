@@ -10,7 +10,7 @@
     <script>
         window.fbAsyncInit = function () {
             appId = '231603603640170';
-            
+
             if (window.location.host.toLowerCase().indexOf('connect.appacitive.com') == -1) {
                 appId = '339010666206034';
             }
@@ -118,6 +118,13 @@
                 </div>
             </div>
             <div id="divSearchResult" class="span9 midSection">
+                <ul id="meetup-list-container" class="event-list clearfix resetList">
+                    <li class="event-item line">
+                        <div class="event-title" style="text-align: center;">
+                            <span><span>Fetching meetups for pune</span> </span>
+                        </div>
+                    </li>
+                </ul>
             </div>
             <div class="span3 rightSection hide">
                 <div class="rightPanel">
@@ -127,7 +134,17 @@
                                 <h2>
                                     I'm Attending</h2>
                             </li>
-                            <li id="divAttending"></li>
+                            <li id="divAttending">
+                                <ul class="D_summaryList">
+                                    <li class="D_group D_narrow" style="margin-bottom: 10px; padding-bottom: 10px;">
+                                        <div class="D_info">
+                                            <div class="D_name ellipsis">
+                                                <span>fetching attending..</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -138,7 +155,17 @@
                                 <h2>
                                     I'm Organizing</h2>
                             </li>
-                            <li id="divOrganising"></li>
+                            <li id="divOrganising">
+                                <ul class="D_summaryList">
+                                    <li class="D_group D_narrow" style="margin-bottom: 10px; padding-bottom: 10px;">
+                                        <div class="D_info">
+                                            <div class="D_name ellipsis">
+                                                <span>fetching organising..</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
