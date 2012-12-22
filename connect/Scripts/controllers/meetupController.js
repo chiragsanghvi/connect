@@ -52,9 +52,7 @@ Connect.controllers.meetupController = new (function () {
         };
 
         var meetups = new Appacitive.ArticleCollection({ schema: 'meetup' });
-        var currDate = new Date().toISOString();
-        currDate = currDate.substring(0, currDate.indexOf('T'));
-
+        var currDate = $.datepicker.formatDate('yy-mm-dd', new Date());
         var filter = '(*date >= date(\'' + currDate + '\') and *geolocation within_circle ' + args.lat + ',' + args.lng + ',' + args.rad + ' mi)';
         meetups.setFilter(filter);
 

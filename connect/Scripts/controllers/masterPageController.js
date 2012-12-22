@@ -21,7 +21,7 @@ Connect.controllers.masterPageController = new (function () {
         addMeetUpView.render();
     };
 
-    
+
     this.onShowIndexView = function () { this.masterPageView.showIndex(); };
 
     this.onShowLogin = function () { this.masterPageView.showLoginModal(); };
@@ -30,7 +30,7 @@ Connect.controllers.masterPageController = new (function () {
 
     this.onCreateMeetUpRequest = function (sender, args) {
         var that = this;
-        var date = args["date"].toISOString();
+        var date = $.datepicker.formatDate('yy-mm-dd', args["date"]);
         var collection = new Appacitive.ArticleCollection({ schema: 'meetup' });
         var article = collection.createNewArticle();
         article.set('title', args["title"]);
@@ -38,7 +38,7 @@ Connect.controllers.masterPageController = new (function () {
         article.set('venue', args["venue"]);
         article.set('formatted_address', args["address"]);
         article.set('geolocation', String.format("{0},{1}", args["lat"], args["lng"]));
-        article.set('date', date.substring(0, date.indexOf("T")));
+        article.set('date', date);
         article.set('time', args["time"]);
         article.set('no_of_attendees', '0');
         article.save(function () {
