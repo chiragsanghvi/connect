@@ -9,9 +9,14 @@
     <script type="text/javascript" src="//connect.facebook.net/en_US/all.js"></script>
     <script>
         window.fbAsyncInit = function () {
+            appId = '231603603640170';
+            
+            if (window.location.host.toLowerCase().indexOf('connect.appacitive.com') == -1) {
+                appId = '339010666206034';
+            }
             // init the FB JS SDK
             FB.init({
-                appId: '231603603640170', // App ID from the App Dashboard
+                appId: appId, // App ID from the App Dashboard
                 status: true, // check the login status upon init?
                 cookie: false, // set sessions cookies to allow your server to access the session?
                 xfbml: true  // parse XFBML tags on this page?
@@ -21,7 +26,6 @@
 
     </script>
     <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-
     <script type="text/javascript" src="Scripts/infrastructure/libraries/jquery.geocomplete.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery-ui.js?v=__RevisionNoGoesHere__"></script>
     <script type="text/javascript" src="/Scripts/infrastructure/libraries/jquery.cookies.js?v=__RevisionNoGoesHere__"></script>
@@ -66,7 +70,8 @@
     <script src="Scripts/views/meetupOrganiserView/meetupOrganiserView.js?v=__RevisionNoGoesHere__"
         type="text/javascript"></script>
     <!--SDK-->
-    <script src="Scripts/infrastructure/libraries/appacitive.sdk.min.js?v=__RevisionNoGoesHere__" type="text/javascript"></script>
+    <script src="Scripts/infrastructure/libraries/appacitive.sdk.min.js?v=__RevisionNoGoesHere__"
+        type="text/javascript"></script>
     <!--CSS-->
     <link type="text/css" rel="stylesheet" href="Styles/Style.css" />
     <link href="Styles/IndexStyle.css" rel="stylesheet" type="text/css" />
@@ -79,7 +84,6 @@
 </head>
 <body style="visibility: hidden;">
     <!--<div id="fb-root"></div>-->
-    
     <div id="divHeader" class="navbar navbar-fixed-top">
     </div>
     <div class="container-fluid">
@@ -143,9 +147,9 @@
         <div id="divCreate" class="row-fluid">
         </div>
         <div id="divMeetupDetails" class="row-fluid hide">
-            <div class="span3 leftSection" id="divOrganiserContainer">
+            <div class="span2 leftSection" id="divOrganiserContainer" style="min-height: 120px !important;">
             </div>
-            <div id="divMeetupDetailSection" class="span9 midSection">
+            <div id="divMeetupDetailSection" class="span10 midSection">
             </div>
         </div>
     </div>
@@ -158,7 +162,8 @@
         </div>
         <div class="modal-body">
             <p style="text-align: center">
-                <button class="btn btn-primary" id="btnLogin"> Login using Facebook</button></p>
+                <button class="btn btn-primary" id="btnLogin">
+                    Login using Facebook</button></p>
         </div>
         <div class="modal-footer">
         </div>
@@ -172,7 +177,8 @@
         </div>
         <div class="modal-body">
             <p style="text-align: center">
-                <button class="btn btn-primary" id="btnSignup"> Sign up using Facebook</button></p>
+                <button class="btn btn-primary" id="btnSignup">
+                    Sign up using Facebook</button></p>
         </div>
         <div class="modal-footer">
         </div>

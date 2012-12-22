@@ -105,7 +105,30 @@ Connect.controllers.meetupController = new (function () {
         new Connect.views.meetupDetailsView({ model: args.meetup }).render();
 
         //render organiser details with fetching its details
-        new Connect.views.meetupOrganiserView({ model: {} }).render();
+        if (!args.meetup.user) {
+            var users = new Appacitive.ArticleCollection({ schema: 'user' });
+            var user = users.createNewArticle();
+            user.set('__id', args.meetup.__createdby);
+            user.fetch(function () {
+                args.meetup.user = user.getArticle();
+                args.meetup.user.profilePic = '/Styles/images/human.png';
+                var _c = function () {
+                    new Connect.views.meetupOrganiserView({ model: args.meetup.user }).render();
+                };
+                if (Connect.bag.isAuthenticatedUser) {
+                    //Fetch fb user for profile pic
+                    _c();
+                } else {
+                    _c();
+                }
+            });
+        } else {
+            if (!args.meetup.user.profilePic) {
+                args.meetup.user.profilePic = '/Styles/images/human.png';
+            }
+            new Connect.views.meetupOrganiserView({ model: args.meetup.user }).render();
+        }
+
     };
 
 
