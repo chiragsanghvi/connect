@@ -169,6 +169,7 @@ Connect.controllers.meetupController = new (function () {
                     _c(meetups);
                 });
             } else {
+                Connect.bag.meetupsAttending.push(args.meetup.__id);
                 base.meetupAttendView.model.meetups.splice(0, 0, args.meetup);
                 base.meetupAttendView.render($('#divAttending'));
             }
@@ -202,6 +203,7 @@ Connect.controllers.meetupController = new (function () {
                     _c(meetups);
                 });
             } else {
+                Connect.bag.meetupsOrganizing.push(args.meetup.__id);
                 base.meetupOrganiseView.model.meetups.splice(0, 0, args.meetup);
                 base.meetupOrganiseView.render($('#divOrganising'));
             }
@@ -275,17 +277,17 @@ Connect.controllers.meetupController = new (function () {
     };
 
     this.updateAttendies = function (sender, args) {
-//        var base = Connect.controllers.meetupController;
-//        if (base.meetupOrganiseView) {
-//            var res = Connect.utils.arrays.where(base.meetupOrganiseView.model, function (m) {
+        //        var base = Connect.controllers.meetupController;
+        //        if (base.meetupOrganiseView) {
+        //            var res = Connect.utils.arrays.where(base.meetupOrganiseView.model, function (m) {
 
-//            });
-//        }
-//        if (base.meetupAttendView) {
-//            var res = Connect.utils.arrays.forEach(base.meetupAttendView.model, function (m) {
+        //            });
+        //        }
+        //        if (base.meetupAttendView) {
+        //            var res = Connect.utils.arrays.forEach(base.meetupAttendView.model, function (m) {
 
-//            });
-//        }
+        //            });
+        //        }
     };
 
 })();
