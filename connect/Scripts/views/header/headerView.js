@@ -31,16 +31,16 @@ window.Connect.views.headerView = Backbone.View.extend({
         $('#btnLogout').bind('click', function () {
             try {
                 Appacitive.facebook.logout(function () {
+                    EventManager.fire('showIndexView')
                     Connect.utils.cookies.del('_connect_user_token');
                     Connect.bag.isAuthenticatedUser = false;
                     EventManager.fire('logoutUser');
-                    EventManager.fire('showIndexView')
                 });
             } catch (e) {
+                EventManager.fire('showIndexView')
                 Connect.utils.cookies.del('_connect_user_token');
                 Connect.bag.isAuthenticatedUser = false;
                 EventManager.fire('logoutUser');
-                EventManager.fire('showIndexView')
             }
         });
         return this;
