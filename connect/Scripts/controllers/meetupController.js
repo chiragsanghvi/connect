@@ -169,6 +169,9 @@ Connect.controllers.meetupController = new (function () {
                     _c(meetups);
                 });
             } else {
+                if (!Connect.bag.meetupsAttending)
+                    Connect.bag.meetupsAttending = [];
+
                 Connect.bag.meetupsAttending.push(args.meetup.__id);
                 base.meetupAttendView.model.meetups.splice(0, 0, args.meetup);
                 base.meetupAttendView.render($('#divAttending'));
@@ -203,6 +206,9 @@ Connect.controllers.meetupController = new (function () {
                     _c(meetups);
                 });
             } else {
+                if (!Connect.bag.meetupsOrganizing)
+                    Connect.bag.meetupsOrganizing = [];
+
                 Connect.bag.meetupsOrganizing.push(args.meetup.__id);
                 base.meetupOrganiseView.model.meetups.splice(0, 0, args.meetup);
                 base.meetupOrganiseView.render($('#divOrganising'));
@@ -277,17 +283,27 @@ Connect.controllers.meetupController = new (function () {
     };
 
     this.updateAttendies = function (sender, args) {
-        //        var base = Connect.controllers.meetupController;
-        //        if (base.meetupOrganiseView) {
-        //            var res = Connect.utils.arrays.where(base.meetupOrganiseView.model, function (m) {
-
-        //            });
-        //        }
-        //        if (base.meetupAttendView) {
-        //            var res = Connect.utils.arrays.forEach(base.meetupAttendView.model, function (m) {
-
-        //            });
-        //        }
+        try {
+            var base = Connect.controllers.meetupController;
+            if (base.meetupOrganiseView) {
+                if (base.meetupOrganiseView.model) {
+                    var res = Connect.utils.arrays.where(base.meetupOrganiseView.model, function (m) {
+                        return (m.__id == args.meetup.__id);
+                    });
+                    if (res && res.length > 0)
+                        res[0].no_of_attendees = args.meetup.no_of_attendees;
+                }
+            }
+            if (base.meetupAttendView) {
+                if (base.meetupAttendView.model) {
+                    var res = Connect.utils.arrays.forEach(base.meetupAttendView.model, function (m) {
+                        return (m.__id == args.meetup.__id);
+                    });
+                    if (res && res.length > 0)
+                        res[0].no_of_attendees = args.meetup.no_of_attendees;
+                }
+            }
+        } catch (e) { }
     };
 
 })();
