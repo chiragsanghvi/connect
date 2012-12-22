@@ -117,7 +117,10 @@ Connect.controllers.meetupController = new (function () {
                 };
                 if (Connect.bag.isAuthenticatedUser) {
                     //Fetch fb user for profile pic
-                    _c();
+                    user.getFacebookProfile(function (fbDetails) {
+                        args.meetup.user.profilePic = Appacitive.facebook.getProfilePictureUrl(fbDetails.username);
+                        _c();
+                    });
                 } else {
                     _c();
                 }
@@ -126,7 +129,13 @@ Connect.controllers.meetupController = new (function () {
             if (!args.meetup.user.profilePic) {
                 args.meetup.user.profilePic = '/Styles/images/human.png';
             }
-            new Connect.views.meetupOrganiserView({ model: args.meetup.user }).render();
+            var users = new Appacitive.ArticleCollection({ schema: 'user' });
+            var user = users.createNewArticle();
+            user.set('__id', args.meetup.user.__id);
+            user.getFacebookProfile(function (fbDetails) {
+                args.meetup.user.profilePic = Appacitive.facebook.getProfilePictureUrl(fbDetails.username);
+                new Connect.views.meetupOrganiserView({ model: args.meetup.user }).render();
+            });
         }
 
     };
