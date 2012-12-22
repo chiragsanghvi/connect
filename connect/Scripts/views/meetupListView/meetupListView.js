@@ -25,8 +25,8 @@ window.Connect.views.meetupListView = Backbone.View.extend({
 
             this.$el = $('#meetup-list-container', this.$container);
 
-            this.bindEvents();
             this.appendMeetups();
+            this.bindEvents();
         }
         return this;
     },
@@ -44,7 +44,7 @@ window.Connect.views.meetupListView = Backbone.View.extend({
     },
     bindEvents: function () {
         var that = this;
-        $('a[itemprop="details"]').live('click', function () {
+        $('a[itemprop="details"]').unbind('click').bind('click', function () {
             var id = $(this).attr('data-id');
             var res = Connect.utils.arrays.where(that.model, function (m) {
                 return (m.__id == id);
@@ -56,12 +56,12 @@ window.Connect.views.meetupListView = Backbone.View.extend({
             EventManager.fire('showMeetupDetails', this, { meetup: res[0] });
         });
 
-        $('a[itemprop="rsvp"]').live('click', function () {
+        $('a[itemprop="rsvp"]').unbind('click').bind('click', function () {
             var id = $(this).attr('data-id');
             var res = Connect.utils.arrays.where(that.model, function (m) {
                 return (m.__id == id);
             });
-            
+
             EventManager.fire('meetup.rsvp', this, { meetup: res[0] });
         });
 
